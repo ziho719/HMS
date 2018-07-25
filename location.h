@@ -1,4 +1,4 @@
-#ifndef LOCATION_H
+﻿#ifndef LOCATION_H
 #define LOCATION_H
 
 #include<QString>
@@ -9,9 +9,9 @@ public:
     Location(QString province,QString city,QString district)
         :province(province),city(city),district(district){}
 
-    const QString& get_province(){return province;}
-    const QString& get_city(){return city;}
-    const QString& get_district(){return district;}
+    const QString& get_province() const{return province;}
+    const QString& get_city() const{return city;}
+    const QString& get_district() const{return district;}
 
 private:
     QString province;

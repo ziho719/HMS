@@ -1,7 +1,7 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "system.h"
 
-#include "hotel.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

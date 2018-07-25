@@ -1,4 +1,4 @@
-#ifndef SYSTEM_H
+﻿#ifndef SYSTEM_H
 #define SYSTEM_H
 
 #include <vector>
@@ -64,10 +64,10 @@ public:
     void add_order(Order* newOrder);
 
 
-
-private:
     System();
-    static System* system;
+private:
+
+    static System *system;
 
     vector<Hotel*> hotels; //酒店组
     vector<Order*> orders; //订单组

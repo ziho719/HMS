@@ -1,20 +1,21 @@
 ﻿#include "system.h"
 
+System* System::system=new System(); //初始化私有静态变量
+
+
 void System::initialize()
 {
-    system=new System();
-
     if(false){
         //连接到数据库后
     }
     else{
         //否则
         //do something
-        System::system->add_customer("ziho","ziho","18907851172");
-        System::system->add_customer("test","test","12321412");
-        System::system->add_manager("lao","lao");
-        System::system->add_manager("B","B");
-        System::system->add_admin("boss","boss");
+        System::getSystem()->add_customer("ziho","ziho","18907851172");
+        System::getSystem()->add_customer("test","test","12321412");
+        System::getSystem()->add_manager("lao","lao");
+        System::getSystem()->add_manager("B","B");
+        System::getSystem()->add_admin("boss","boss");
 
         Order* o1 =new Order("ziho","apple","S",233);
         Order* o2 =new Order("ziho","banana","R",344);
@@ -23,23 +24,24 @@ void System::initialize()
         o1->change_status_to_done();
         o2->change_status_to_have_cancel();
         o3->change_status_to_pending_comment();
-        System::system->add_order(o1);
-        System::system->add_order(o2);
-        System::system->add_order(o3);
-        System::system->add_order(o4);
+        System::getSystem()->add_order(o1);
+        System::getSystem()->add_order(o2);
+        System::getSystem()->add_order(o3);
+        System::getSystem()->add_order(o4);
 
-        Hotel* h1 =new Hotel(HotelInfo::newHotelInfo("apple",Location("beijing","A","A"),"1"),"lao");
-        Hotel* h2 =new Hotel(HotelInfo::newHotelInfo("apple",Location("beijing","A","A"),"1"),"lao");
-        Hotel* h3 =new Hotel(HotelInfo::newHotelInfo("apple",Location("beijing","A","A"),"1"),"B");
-        Hotel* h4 =new Hotel(HotelInfo::newHotelInfo("apple",Location("beijing","A","A"),"1"),"B");
+        Location l1("beijing","A","A");
+        Hotel* h1 =new Hotel(HotelInfo::newHotelInfo("apple",l1,"1"),"lao");
+        Hotel* h2 =new Hotel(HotelInfo::newHotelInfo("apple",l1,"1"),"lao");
+        Hotel* h3 =new Hotel(HotelInfo::newHotelInfo("apple",l1,"1"),"B");
+        Hotel* h4 =new Hotel(HotelInfo::newHotelInfo("apple",l1,"1"),"B");
         h1->change_status_to_checked();
         h2->change_status_to_checked();
         h1->get_hotel_info()->add_comment("ziho","rubbish",1);
         h2->get_hotel_info()->add_room("A","A","C",233,2,10);
-        System::system->add_hotel(h1);
-        System::system->add_hotel(h2);
-        System::system->add_hotel(h3);
-        System::system->add_hotel(h4);
+        System::getSystem()->add_hotel(h1);
+        System::getSystem()->add_hotel(h2);
+        System::getSystem()->add_hotel(h3);
+        System::getSystem()->add_hotel(h4);
 
     }
 

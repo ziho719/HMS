@@ -1,4 +1,4 @@
-#ifndef HOTELINFO_H
+﻿#ifndef HOTELINFO_H
 #define HOTELINFO_H
 
 #include <QString>
@@ -9,6 +9,9 @@
 #include "location.h"
 
 using namespace std;
+class Comment;
+class Room;
+class Location;
 
 class HotelInfo
 {
@@ -29,12 +32,12 @@ public:
     shared_ptr<HotelInfo> add_room(const Room& r);
     shared_ptr<HotelInfo> add_room(QString type,QString url,QString description,double price,int people,int sum,double discount=1);
 
-    const vector<Comment>& get_comments() const {return Comments;}
-    const vector<Room>&    get_rooms() const {return rooms;}
-    const QString&         get_name() const {return name;}
-    const QString&         get_phone() const {return phone;}
-    const QString&         get_url() const {return url;}
-    const Location&        get_location() const {return location;}
+    const vector<Comment>& get_comments() const{return Comments;}
+    const vector<Room>&    get_rooms()  const{return rooms;}
+    const QString&         get_name() const{return name;}
+    const QString&         get_phone() const{return phone;}
+    const QString&         get_url()      const{return url;}
+    const Location&        get_location() const{return location;}
 
 
 private:

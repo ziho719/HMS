@@ -1,4 +1,4 @@
-#ifndef HOTEL_H
+﻿#ifndef HOTEL_H
 #define HOTEL_H
 
 #include"hotelinfo.h"
@@ -15,6 +15,8 @@ namespace HotelStatus {
 }
 using HotelStatus::checked;
 using HotelStatus::unchecked;
+
+class HotelInfo;
 
 class Hotel
 {

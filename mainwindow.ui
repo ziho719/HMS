@@ -157,6 +157,11 @@
        <height>71</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>//TO DO: 符合特定条件的酒店和客房筛选的UI 排序</string>
      </property>
@@ -169,7 +174,7 @@
      <x>0</x>
      <y>0</y>
      <width>1215</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="start">
