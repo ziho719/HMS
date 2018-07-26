@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT += gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -36,7 +37,38 @@ SOURCES += \
     functionbtn.cpp \
     order.cpp \
     system.cpp \
-    dlg_sign.cpp
+    dlg_sign.cpp \
+    wgt_hotel.cpp \
+    administrater.cpp \
+    customer.cpp \
+    dlg_sign.cpp \
+    functionbtn.cpp \
+    hotel.cpp \
+    hotelinfo.cpp \
+    main.cpp \
+    mainwindow.cpp \
+    manager.cpp \
+    order.cpp \
+    orderinfo.cpp \
+    room.cpp \
+    system.cpp \
+    user.cpp \
+    wgt_hotel.cpp \
+    administrater.cpp \
+    customer.cpp \
+    dlg_sign.cpp \
+    functionbtn.cpp \
+    hotel.cpp \
+    hotelinfo.cpp \
+    main.cpp \
+    mainwindow.cpp \
+    manager.cpp \
+    order.cpp \
+    orderinfo.cpp \
+    room.cpp \
+    system.cpp \
+    user.cpp \
+    wgt_hotel.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -52,9 +84,47 @@ HEADERS += \
     functionbtn.h \
     order.h \
     system.h \
-    dlg_sign.h
+    dlg_sign.h \
+    wgt_hotel.h \
+    administrater.h \
+    comment.h \
+    customer.h \
+    dlg_sign.h \
+    functionbtn.h \
+    hotel.h \
+    hotelinfo.h \
+    location.h \
+    mainwindow.h \
+    manager.h \
+    order.h \
+    orderinfo.h \
+    room.h \
+    system.h \
+    user.h \
+    wgt_hotel.h \
+    administrater.h \
+    comment.h \
+    customer.h \
+    dlg_sign.h \
+    functionbtn.h \
+    hotel.h \
+    hotelinfo.h \
+    location.h \
+    mainwindow.h \
+    manager.h \
+    order.h \
+    orderinfo.h \
+    room.h \
+    system.h \
+    user.h \
+    wgt_hotel.h
 
 FORMS += \
-        mainwindow.ui \
+    mainwindow.ui \
     functionbtn.ui \
-    dlg_sign.ui
+    dlg_sign.ui \
+    wgt_hotel.ui
+
+RESOURCES += \
+    hotel_pic.qrc
+

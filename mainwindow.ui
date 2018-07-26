@@ -31,14 +31,27 @@
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>200</y>
+       <x>60</x>
+       <y>50</y>
        <width>93</width>
        <height>28</height>
       </rect>
      </property>
      <property name="text">
       <string>PushButton</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>150</y>
+       <width>201</width>
+       <height>211</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>sajbdabdiuabsiufufb</string>
      </property>
     </widget>
    </widget>
@@ -101,10 +114,10 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>欢迎！</string>
+      <string>您尚未登录！</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="signInBtn_2">
+    <widget class="QPushButton" name="signoutBtn">
      <property name="geometry">
       <rect>
        <x>300</x>

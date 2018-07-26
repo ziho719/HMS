@@ -118,13 +118,13 @@ void dlg_sign::on_pushBtn_signup_clicked()
         return;
     }
     if(ui->radioBtn_customer->isChecked()){ //选中用户
-        System::getSystem()->add_customer(name_input,pwd_input,NULL);
+        System::getSystem()->set_user(System::getSystem()->add_customer(name_input,pwd_input,NULL));
         emit success();
         this->close();
         qDebug()<<"customer sign up";
     }
     else if(ui->radioBtn_manager->isChecked()){
-        System::getSystem()->add_manager(name_input,pwd_input);
+        System::getSystem()->set_user(System::getSystem()->add_manager(name_input,pwd_input));
         emit success();
         this->close();
         qDebug()<<"manager sign up";

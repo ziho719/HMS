@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/pics">
+        <file>pic/1-豪华.jpg</file>
+        <file>pic/1-精.jpg</file>
+        <file>pic/1-温.jpg</file>
+        <file>pic/2-标.jpg</file>
+        <file>pic/2-行政.jpg</file>
+        <file>pic/2-锦江之星.jpg</file>
+        <file>pic/2-商.jpg</file>
+        <file>pic/4-挪威.jpg</file>
+        <file>pic/4-森林.jpg</file>
+        <file>pic/北京机场酒店式公寓.jpg</file>
+        <file>pic/北京泰富酒店.jpg</file>
+        <file>pic/豪华.jpg</file>
+        <file>pic/桔子酒店.jpg</file>
+        <file>pic/商务房B.jpg</file>
+        <file>pic/涠洲岛.jpg</file>
+        <file>pic/涠洲岛-标.jpg</file>
+        <file>pic/涠洲岛-亲.jpg</file>
+        <file>pic/阳朔.jpg</file>
+        <file>pic/阳朔-缤纷.jpg</file>
+        <file>pic/阳朔-阳台.jpg</file>
+        <file>pic/1-豪华.png</file>
+        <file>pic/11.jpg</file>
+        <file>pic/1-豪华.bmp</file>
+    </qresource>
+</RCC>

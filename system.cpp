@@ -10,7 +10,7 @@ void System::initialize()
     }
     else{
         //否则
-        //do something
+        System::getSystem()->set_user(NULL);
         System::getSystem()->add_customer("ziho","ziho","18907851172");
         System::getSystem()->add_customer("test","test","12321412");
         System::getSystem()->add_manager("lao","lao");
