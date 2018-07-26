@@ -35,7 +35,8 @@ SOURCES += \
     administrater.cpp \
     functionbtn.cpp \
     order.cpp \
-    system.cpp
+    system.cpp \
+    dlg_sign.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -50,8 +51,10 @@ HEADERS += \
     administrater.h \
     functionbtn.h \
     order.h \
-    system.h
+    system.h \
+    dlg_sign.h
 
 FORMS += \
         mainwindow.ui \
-    functionbtn.ui
+    functionbtn.ui \
+    dlg_sign.ui
