@@ -5,6 +5,8 @@
 #include <QMessageBox>
 #include<QDebug>
 #include<QMessageBox>
+#include "system.h"
+
 namespace Ui {
 class dlg_sign;
 }
@@ -16,10 +18,6 @@ class dlg_sign : public QDialog
 public:
     explicit dlg_sign(QWidget *parent = 0);
     ~dlg_sign();
-
-
-
-
 signals:
     void success(); //登录成功
 private slots:

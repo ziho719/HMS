@@ -53,9 +53,9 @@ public:
     Administrater* find_admin(const QString& name);
 
     //登录、检查pwd
-    Customer* check_customer_accout(const QString& name,const QString& pwd);
-    Manager* check_manager_accout(const QString& name,const QString& pwd);
-    Administrater* check_admin_accout(const QString& name,const QString& pwd);
+    Customer* check_customer_account(const QString& name,const QString& pwd);
+    Manager* check_manager_account(const QString& name,const QString& pwd);
+    Administrater* check_admin_account(const QString& name,const QString& pwd);
 
     //检查重名
     bool check_name_available(const QString& name);
@@ -63,6 +63,8 @@ public:
     void add_hotel(Hotel* newHotel);
     void add_order(Order* newOrder);
 
+    //更改用户
+    void set_user(User* u);
 
     System();
 private:

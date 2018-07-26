@@ -173,7 +173,7 @@ Administrater *System::find_admin(const QString &name)
     return NULL;
 }
 
-Customer *System::check_customer_accout(const QString &name, const QString &pwd)
+Customer *System::check_customer_account(const QString &name, const QString &pwd)
 {
     for(Customer* customer:customers){
         if(customer->name()==name){
@@ -184,7 +184,7 @@ Customer *System::check_customer_accout(const QString &name, const QString &pwd)
     return NULL;
 }
 
-Manager *System::check_manager_accout(const QString &name, const QString &pwd)
+Manager *System::check_manager_account(const QString &name, const QString &pwd)
 {
     for(Manager* manager: managers){
         if(manager->name()==name){
@@ -195,7 +195,7 @@ Manager *System::check_manager_accout(const QString &name, const QString &pwd)
     return NULL;
 }
 
-Administrater *System::check_admin_accout(const QString &name, const QString &pwd)
+Administrater *System::check_admin_account(const QString &name, const QString &pwd)
 {
     for(Administrater* admin: admins){
         if(admin->name()==name){
@@ -222,5 +222,10 @@ void System::add_hotel(Hotel *newHotel)
 void System::add_order(Order *newOrder)
 {
     orders.push_back(newOrder);
+}
+
+void System::set_user(User *u)
+{
+    user=u;
 }
 
