@@ -1,4 +1,4 @@
-#ifndef ROOM_H
+﻿#ifndef ROOM_H
 #define ROOM_H
 
 #include<QString>
@@ -8,13 +8,12 @@ class Room
 {
 public:
     Room();
-    Room(QString type,QString url,QString description,double price,int people,int sum,double discount=1); //构造
+    Room(QString type, QString url, QString description, double price, int sum, double discount=-1); //构造
 
     void set_type(QString newType);
     void set_url(QString newurl);
     void set_description(QString newdescription);
     void set_price(double newPrice);
-    void set_people(int newPeople);
     void set_discount(double newDiscount);
     void set_sum(int nSum);
     void operator+=(int num); //增加_sum，如旅客退房等
@@ -24,18 +23,15 @@ public:
     const QString&   get_url() const;
     const QString&   get_description() const;
     const double &   get_price()const;
-    const int    &   get_people()const;
-          double     get_discount();
-    const double &   get_price_discounted()const;  //折扣后的价格
+    const double &   get_discount();
     const int    &   get_sum()const;
 
 private:
-    QString _type;  //房型
+    QString _type;  //房型或房名
     QString _url;   //图片
     QString _description;
     double  _price;
-    int     _people; //几人房
-    double  _discount; //0~1的数，折扣
+    double  _discount; //折扣后的价格
     int     _sum;  //房型数量
 
 };

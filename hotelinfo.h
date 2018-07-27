@@ -28,9 +28,9 @@ public:
     void edit_location(const Location &loca);
 
     shared_ptr<HotelInfo> add_comment(const Comment& cm);
-    shared_ptr<HotelInfo> add_comment(const QString &user,const QString &text,int mark);
+    shared_ptr<HotelInfo> add_comment(const QString &user,const QString &text,double mark);
     shared_ptr<HotelInfo> add_room(const Room& r);
-    shared_ptr<HotelInfo> add_room(QString type,QString url,QString description,double price,int people,int sum,double discount=1);
+    shared_ptr<HotelInfo> add_room(QString type,QString url,QString description,double price,int sum,double discount=1);
 
     const vector<Comment>& get_comments() {return Comments;}
     const vector<Room>&    get_rooms()  {return rooms;}
@@ -54,7 +54,6 @@ private:
 
     weak_ptr<HotelInfo> thisWeakPtr;//自身信息的指针
 
-    double price_average; //计算得出
 };
 
 #endif // HOTELINFO_H

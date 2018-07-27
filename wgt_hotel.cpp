@@ -1,8 +1,8 @@
 ﻿#include "wgt_hotel.h"
 #include "ui_wgt_hotel.h"
 
-Wgt_hotel::Wgt_hotel(QWidget *parent) :
-    QWidget(parent),
+Wgt_hotel::Wgt_hotel(QWidget *parent, shared_ptr<HotelInfo> i) :
+    QWidget(parent),info(i),
     ui(new Ui::Wgt_hotel)
 {
     ui->setupUi(this);
@@ -13,23 +13,29 @@ Wgt_hotel::~Wgt_hotel()
     delete ui;
 }
 
-void Wgt_hotel::changeUi(const QString &url, const QString &name, const Location &l, const QString &phone, double mark)
+void Wgt_hotel::changeUi()
 {
-    ui->name->setText(name);
-    pic.load(url);
+    ui->name->setText(info->get_name());
+    pic.load(info->get_url());
     ui->pic->setPixmap(pic);
     QString loca;
-    if(l.get_city()==l.get_province())
+    if(info->get_location().get_city()==info->get_location().get_province())
     {
-        loca=l.get_province();
-        loca.append(" ").append(l.get_district());
+        loca=info->get_location().get_province();
+        loca.append(" ").append(info->get_location().get_district());
     }
     else{
-        loca=l.get_province();
-        loca.append(" ").append(l.get_city()).append(" ").append(l.get_district());
+        loca=info->get_location().get_province();
+        loca.append(" ").append(info->get_location().get_city()).append(" ").append(info->get_location().get_district());
     }
-    ui->l_lacation->setText((loca));
+    ui->l_lacation->setText(loca);
 
-    ui->l_phone->setText(phone);
-    ui->l_mark->setText(QString::number(mark,'f',1));
+    ui->l_phone->setText(info->get_phone());
+    ui->l_mark->setText(QString::number(info->get_mark(),'f',1));
+}
+
+void Wgt_hotel::on_pBtn_comment_clicked()
+{
+    if(!w) w=new Wgt_comments(info->get_name(),info->get_comments(),this);
+    w->show();
 }

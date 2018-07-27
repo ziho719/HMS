@@ -41,7 +41,7 @@ shared_ptr<HotelInfo> HotelInfo::add_comment(const Comment &cm)
     return get_shared_ptr();
 }
 
-shared_ptr<HotelInfo> HotelInfo::add_comment(const QString &user, const QString &text, int mark)
+shared_ptr<HotelInfo> HotelInfo::add_comment(const QString &user, const QString &text, double mark)
 {
     Comments.push_back(Comment(user,text,mark));
     return get_shared_ptr();
@@ -53,9 +53,9 @@ shared_ptr<HotelInfo> HotelInfo::add_room(const Room &r)
     return get_shared_ptr();
 }
 
-shared_ptr<HotelInfo> HotelInfo::add_room(QString type, QString url, QString description, double price, int people, int sum, double discount)
+shared_ptr<HotelInfo> HotelInfo::add_room(QString type, QString url, QString description, double price, int sum, double discount)
 {
-    rooms.push_back(Room(type,url,description,price,people,sum,discount));
+    rooms.push_back(Room(type,url,description,price,sum,discount));
     return get_shared_ptr();
 }
 

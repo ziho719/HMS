@@ -47,11 +47,10 @@ void MainWindow::reshow_hotelInfo(const vector<shared_ptr<HotelInfo>>& hotels)
     auto lw=ui->HotelList;
     lw->clear();
     for(shared_ptr<HotelInfo> hotel:hotels){
-        Wgt_hotel *w=new Wgt_hotel(this);
+        Wgt_hotel *w=new Wgt_hotel(this,hotel);
         auto item=new QListWidgetItem;
         item->setSizeHint(w->size());
-        w->changeUi(hotel->get_url(),hotel->get_name(),hotel->get_location()
-                    ,hotel->get_phone(),hotel->get_mark());
+        w->changeUi();
         lw->addItem(item);
         lw->setItemWidget(item,w);
 

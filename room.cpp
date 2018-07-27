@@ -1,12 +1,12 @@
-#include "room.h"
+﻿#include "room.h"
 
 Room::Room()
-    :_type("null"),_url("NULL"),_description("NULL"),_price(0),_people(0),_sum(0),_discount(0)
+    :_type("null"),_url("NULL"),_description("NULL"),_price(0),_sum(0),_discount(0)
 {
 }
 
-Room::Room(QString type, QString url, QString description, double price, int people, int sum, double discount)
-    :_type(type),_url(url),_description(description),_price(price),_people(people),_sum(sum),_discount(discount)
+Room::Room(QString type, QString url, QString description, double price, int sum, double discount)
+    :_type(type),_url(url),_description(description),_price(price),_sum(sum),_discount(discount)
 {
 
 }
@@ -33,10 +33,6 @@ void Room::set_price(double newPrice)
     _price=newPrice;
 }
 
-void Room::set_people(int newPeople)
-{
-    _people=newPeople;
-}
 
 void Room::set_discount(double newDiscount)
 {
@@ -78,20 +74,13 @@ const double &Room::get_price() const
     return _price;
 }
 
-const int &Room::get_people() const
-{
-    return _people;
-}
 
-double Room::get_discount()
+
+const double &Room::get_discount()
 {
     return _discount;
 }
 
-const double &Room::get_price_discounted() const
-{
-    return _discount*_price;
-}
 
 const int &Room::get_sum() const
 {

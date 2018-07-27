@@ -28,14 +28,36 @@
       <height>450</height>
      </rect>
     </property>
-    <widget class="QListWidget" name="listWidget">
+    <widget class="QListWidget" name="list_detail">
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>30</y>
+       <y>49</y>
        <width>400</width>
-       <height>420</height>
+       <height>401</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_whatitis">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
@@ -188,6 +210,9 @@
       <width>640</width>
       <height>551</height>
      </rect>
+    </property>
+    <property name="spacing">
+     <number>5</number>
     </property>
    </widget>
   </widget>

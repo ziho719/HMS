@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "location.h"
 #include <QPixmap>
+#include "hotelinfo.h"
+#include <memory>
+#include "wgt_comments.h"
 
 namespace Ui {
 class Wgt_hotel;
@@ -14,15 +17,21 @@ class Wgt_hotel : public QWidget
     Q_OBJECT
 
 public:
-    explicit Wgt_hotel(QWidget *parent = 0);
+    explicit Wgt_hotel(QWidget *parent = 0,shared_ptr<HotelInfo> i=NULL);
     ~Wgt_hotel();
 
 public slots:
-    void changeUi(const QString &url, const QString &name
-                  , const Location &l, const QString &phone, double mark);
+    void changeUi();
+
+
+private slots:
+    void on_pBtn_comment_clicked();
+
 private:
     Ui::Wgt_hotel *ui;
+    shared_ptr<HotelInfo> info;
     QPixmap pic;
+    Wgt_comments *w;
 };
 
 #endif // WGT_HOTEL_H
