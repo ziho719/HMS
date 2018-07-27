@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
+    <width>1050</width>
     <height>750</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
    <string>酒店管理系统</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="HotelInfo" native="true">
+   <widget class="QWidget" name="detail" native="true">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -28,30 +28,14 @@
       <height>450</height>
      </rect>
     </property>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QListWidget" name="listWidget">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>50</y>
-       <width>93</width>
-       <height>28</height>
+       <x>0</x>
+       <y>30</y>
+       <width>400</width>
+       <height>420</height>
       </rect>
-     </property>
-     <property name="text">
-      <string>PushButton</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>150</y>
-       <width>201</width>
-       <height>211</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>sajbdabdiuabsiufufb</string>
      </property>
     </widget>
    </widget>
@@ -141,7 +125,7 @@
      <rect>
       <x>410</x>
       <y>0</y>
-      <width>790</width>
+      <width>640</width>
       <height>151</height>
      </rect>
     </property>
@@ -180,7 +164,7 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>20</x>
        <y>50</y>
        <width>401</width>
        <height>71</height>
@@ -201,7 +185,7 @@
      <rect>
       <x>410</x>
       <y>150</y>
-      <width>790</width>
+      <width>640</width>
       <height>551</height>
      </rect>
     </property>
@@ -212,7 +196,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1200</width>
+     <width>1050</width>
      <height>26</height>
     </rect>
    </property>

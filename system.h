@@ -65,10 +65,12 @@ public:
 
     //更改用户
     void set_user(User* u);
+    //创建listwidget
+    vector<shared_ptr<HotelInfo>> get_hotelinfo_checked();
+    vector<shared_ptr<HotelInfo>> get_hotelinfo_unchecked();
 
-    System();
 private:
-
+    System();
     static System *system;
 
     vector<Hotel*> hotels; //酒店组

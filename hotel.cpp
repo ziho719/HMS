@@ -19,8 +19,8 @@ void Hotel::change_status_to_checked()
 
 QString Hotel::get_status()
 {
-    if(status==checked) return "已审核";
-    else if(status==unchecked) return "待审核";
+    if(status==checked) return "checked";
+    else if(status==unchecked) return "unchecked";
     else{
         qDebug()<<"status have some mistakes";
         return "NULL";

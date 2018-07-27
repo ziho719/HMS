@@ -11,9 +11,10 @@ MainWindow::MainWindow(QWidget *parent) :
     //初始化signDlg
     signDlg=new dlg_sign();
     connect(signDlg,SIGNAL(success()),this,SLOT(reshow_user()));
+    //初始化hotellist
+    reshow_hotelInfo(System::getSystem()->get_hotelinfo_checked());
 
-
-    ui->label_2->setPixmap(QPixmap(QString::fromLocal8Bit(":/pics/pic/1-豪华.jpg")));
+   //ui->label_2->setPixmap(QPixmap(QString::fromLocal8Bit(":/pics/pic/1-豪华.jpg")));
 }
 
 MainWindow::~MainWindow()
@@ -39,6 +40,23 @@ void MainWindow::reshow_user()
         ui->username_welcome->setText(QString::fromLocal8Bit("您尚未登录"));
     //TODO:function更新
     qDebug()<<"reshow user";
+}
+
+void MainWindow::reshow_hotelInfo(const vector<shared_ptr<HotelInfo>>& hotels)
+{
+    auto lw=ui->HotelList;
+    lw->clear();
+    for(shared_ptr<HotelInfo> hotel:hotels){
+        Wgt_hotel *w=new Wgt_hotel(this);
+        auto item=new QListWidgetItem;
+        item->setSizeHint(w->size());
+        w->changeUi(hotel->get_url(),hotel->get_name(),hotel->get_location()
+                    ,hotel->get_phone(),hotel->get_mark());
+        lw->addItem(item);
+        lw->setItemWidget(item,w);
+
+        //TODO:connect
+    }
 }
 
 void MainWindow::on_signoutBtn_clicked()

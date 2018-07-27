@@ -59,6 +59,16 @@ shared_ptr<HotelInfo> HotelInfo::add_room(QString type, QString url, QString des
     return get_shared_ptr();
 }
 
+double HotelInfo::get_mark()
+{
+    size_t n=Comments.size();
+    double count=0;
+    for(int i=0;i<n;i++){
+        count+=Comments[i].get_mark();
+    }
+    return count/n;
+}
+
 HotelInfo::HotelInfo(QString name, Location loca, QString phone, QString url)
     :name(name),location(loca),phone(phone),url(url){
     //什么都不做

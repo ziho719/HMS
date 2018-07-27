@@ -49,7 +49,6 @@ SOURCES += \
     mainwindow.cpp \
     manager.cpp \
     order.cpp \
-    orderinfo.cpp \
     room.cpp \
     system.cpp \
     user.cpp \
@@ -64,7 +63,6 @@ SOURCES += \
     mainwindow.cpp \
     manager.cpp \
     order.cpp \
-    orderinfo.cpp \
     room.cpp \
     system.cpp \
     user.cpp \
@@ -97,7 +95,6 @@ HEADERS += \
     mainwindow.h \
     manager.h \
     order.h \
-    orderinfo.h \
     room.h \
     system.h \
     user.h \
@@ -113,7 +110,6 @@ HEADERS += \
     mainwindow.h \
     manager.h \
     order.h \
-    orderinfo.h \
     room.h \
     system.h \
     user.h \
