@@ -26,6 +26,9 @@ public slots:
 
 private slots:
     void on_pBtn_comment_clicked();
+    void on_pBtn_detail_clicked();
+signals:
+    void pBtn_room_clicked(shared_ptr<HotelInfo> &ptr);
 
 private:
     Ui::Wgt_hotel *ui;

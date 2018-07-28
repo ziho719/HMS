@@ -6,6 +6,7 @@ Wgt_hotel::Wgt_hotel(QWidget *parent, shared_ptr<HotelInfo> i) :
     ui(new Ui::Wgt_hotel)
 {
     ui->setupUi(this);
+    w=NULL;
 }
 
 Wgt_hotel::~Wgt_hotel()
@@ -31,11 +32,20 @@ void Wgt_hotel::changeUi()
     ui->l_lacation->setText(loca);
 
     ui->l_phone->setText(info->get_phone());
-    ui->l_mark->setText(QString::number(info->get_mark(),'f',1));
+    ui->l_mark->setText(QString::fromLocal8Bit("评分：")+QString::number(info->get_mark(),'f',1));
 }
 
 void Wgt_hotel::on_pBtn_comment_clicked()
 {
-    if(!w) w=new Wgt_comments(info->get_name(),info->get_comments(),this);
+    if(!w) w=new Wgt_comments(info->get_name(),info->get_comments());
+    else {
+        delete w;
+        w=new Wgt_comments(info->get_name(),info->get_comments());
+    }
     w->show();
+}
+
+void Wgt_hotel::on_pBtn_detail_clicked()
+{
+    emit pBtn_room_clicked(info);
 }

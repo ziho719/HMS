@@ -54,8 +54,38 @@ void MainWindow::reshow_hotelInfo(const vector<shared_ptr<HotelInfo>>& hotels)
         lw->addItem(item);
         lw->setItemWidget(item,w);
 
+        connect(w,SIGNAL(pBtn_room_clicked(shared_ptr<HotelInfo>&)),this,SLOT(show_room(shared_ptr<HotelInfo>&)));
         //TODO:connect
     }
+}
+
+void MainWindow::show_room(shared_ptr<HotelInfo> &info)
+{
+    auto lw=ui->list_detail;
+    lw->clear();
+    for(Room room:info->get_rooms()){
+        Wgt_room *w=new Wgt_room(info,room,this);
+        auto item=new QListWidgetItem;
+        item->setSizeHint(w->size());
+        w->changeUi();
+        lw->addItem(item);
+        lw->setItemWidget(item,w);
+        connect(w,SIGNAL(newOrder(shared_ptr<HotelInfo>,Room)),this,SLOT(open_dlg_payment(shared_ptr<HotelInfo>,Room)));
+    }
+    ui->label_whatitis->setText(QString::fromLocal8Bit("查看房间,当前酒店为：")+info->get_name());
+
+}
+
+void MainWindow::add_new_order()
+{
+
+}
+
+void MainWindow::open_dlg_payment(shared_ptr<HotelInfo> info, Room r)
+{
+    Dlg_newOrder *d=new Dlg_newOrder(info,r);
+    d->changeUi();
+    d->exec();
 }
 
 void MainWindow::on_signoutBtn_clicked()

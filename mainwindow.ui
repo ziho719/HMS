@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1050</width>
+    <width>1160</width>
     <height>750</height>
    </rect>
   </property>
@@ -24,7 +24,7 @@
      <rect>
       <x>0</x>
       <y>250</y>
-      <width>400</width>
+      <width>471</width>
       <height>450</height>
      </rect>
     </property>
@@ -33,17 +33,20 @@
       <rect>
        <x>0</x>
        <y>49</y>
-       <width>400</width>
+       <width>471</width>
        <height>401</height>
       </rect>
+     </property>
+     <property name="spacing">
+      <number>5</number>
      </property>
     </widget>
     <widget class="QLabel" name="label_whatitis">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>20</y>
-       <width>151</width>
+       <x>10</x>
+       <y>10</y>
+       <width>451</width>
        <height>31</height>
       </rect>
      </property>
@@ -66,7 +69,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>400</width>
+      <width>471</width>
       <height>250</height>
      </rect>
     </property>
@@ -78,7 +81,7 @@
       <rect>
        <x>0</x>
        <y>50</y>
-       <width>400</width>
+       <width>471</width>
        <height>200</height>
       </rect>
      </property>
@@ -86,7 +89,7 @@
     <widget class="QPushButton" name="signInBtn">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>260</x>
        <y>10</y>
        <width>91</width>
        <height>31</height>
@@ -126,7 +129,7 @@
     <widget class="QPushButton" name="signoutBtn">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>360</x>
        <y>10</y>
        <width>91</width>
        <height>31</height>
@@ -145,9 +148,9 @@
    <widget class="QGroupBox" name="conditionBox">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>490</x>
       <y>0</y>
-      <width>640</width>
+      <width>661</width>
       <height>151</height>
      </rect>
     </property>
@@ -205,9 +208,9 @@
    <widget class="QListWidget" name="HotelList">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>490</x>
       <y>150</y>
-      <width>640</width>
+      <width>661</width>
       <height>551</height>
      </rect>
     </property>
@@ -221,7 +224,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1050</width>
+     <width>1160</width>
      <height>26</height>
     </rect>
    </property>

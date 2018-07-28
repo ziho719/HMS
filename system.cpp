@@ -19,10 +19,10 @@ void System::initialize()
         System::getSystem()->add_admin("boss","boss");
         System::getSystem()->add_admin("toby","toby");
 
-        Order* o1 =new Order("ziho","apple","S",233);
-        Order* o2 =new Order("ziho","banana","R",344);
-        Order* o3 =new Order("frisk","canada","A",455);
-        Order* o4 =new Order("frisk","dog","s",566);
+        Order* o1 =new Order("ziho",QString::fromLocal8Bit("锦江之星"),QString::fromLocal8Bit("商务房B"),666);
+        Order* o2 =new Order("ziho",QString::fromLocal8Bit("阳朔假日大酒店"),QString::fromLocal8Bit("缤纷大床房"),458);
+        Order* o3 =new Order("frisk",QString::fromLocal8Bit("北京泰富酒店"),QString::fromLocal8Bit("行政至尊套房"),1228);
+        Order* o4 =new Order("frisk",QString::fromLocal8Bit("涠洲岛隐庐海景酒店"),QString::fromLocal8Bit("海景亲子间"),858);
         o1->change_status_to_done();
         o2->change_status_to_have_cancel();
         o3->change_status_to_pending_comment();

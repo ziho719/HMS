@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
+    <width>632</width>
     <height>100</height>
    </rect>
   </property>
@@ -105,7 +105,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
+      <y>40</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -117,8 +117,8 @@
    <widget class="QLabel" name="l_mark">
     <property name="geometry">
      <rect>
-      <x>11</x>
-      <y>14</y>
+      <x>10</x>
+      <y>0</y>
       <width>101</width>
       <height>41</height>
      </rect>
@@ -131,6 +131,19 @@
     </property>
     <property name="text">
      <string>评分：5.0</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBtn_detail">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>查看房间</string>
     </property>
    </widget>
   </widget>
