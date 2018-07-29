@@ -38,12 +38,12 @@ void System::initialize()
         Location l5(QString::fromLocal8Bit("广西"),QString::fromLocal8Bit("桂林"),QString::fromLocal8Bit("阳朔"));
         Location l6(QString::fromLocal8Bit("广西"),QString::fromLocal8Bit("北海"),QString::fromLocal8Bit("海城区"));
 
-        Hotel* h1 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("北京首都机场酒店式公寓"),l1,"11111",QString::fromLocal8Bit(":/pics/pic/北京机场酒店式公寓.jpg")),"san");
+        Hotel* h1 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("北京酒店式公寓"),l1,"11111",QString::fromLocal8Bit(":/pics/pic/北京机场酒店式公寓.jpg")),"san");
         Hotel* h2 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("锦江之星"),l2,"22222",QString::fromLocal8Bit(":/pics/pic/2-锦江之星.jpg")),"san");
         Hotel* h3 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("北京泰富酒店"),l3,"333333",QString::fromLocal8Bit(":/pics/pic/北京泰富酒店.jpg")),"papyrus");
         Hotel* h4 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("桔子酒店"),l4,"444444",QString::fromLocal8Bit(":/pics/pic/桔子酒店.jpg")),"papyrus");
         Hotel* h5 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("阳朔假日大酒店"),l5,"5555555",QString::fromLocal8Bit(":/pics/pic/阳朔.jpg")),"toriel");
-        Hotel* h6 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("涠洲岛隐庐海景酒店"),l6,"66666666",QString::fromLocal8Bit(":/pics/pic/涠洲岛.jpg")),"toriel");
+        Hotel* h6 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("涠洲岛海景酒店"),l6,"66666666",QString::fromLocal8Bit(":/pics/pic/涠洲岛.jpg")),"toriel");
         h1->change_status_to_checked();
         h2->change_status_to_checked();
         h3->change_status_to_checked();

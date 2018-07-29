@@ -15,9 +15,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(signDlg,SIGNAL(success()),this,SLOT(reshow_user()));
     reshow_user();
     //初始化hotellist
+
     reshow_hotelInfo(System::getSystem()->get_hotelinfo_checked());
 
-   //ui->label_2->setPixmap(QPixmap(QString::fromLocal8Bit(":/pics/pic/1-豪华.jpg")));
+
 }
 
 MainWindow::~MainWindow()
@@ -64,7 +65,7 @@ void MainWindow::reshow_user()
         ft->setCellWidget(0,0,btn1);
 
         FunctionBtn *btn2=new FunctionBtn(QString::fromLocal8Bit("查看"),QString::fromLocal8Bit("订单"));
-        //connect
+        connect(btn2,SIGNAL(Btn_clicked()),this,SLOT(open_dlg_order()));
         ft->setCellWidget(0,1,btn2);
 
         FunctionBtn *btn3=new FunctionBtn(QString::fromLocal8Bit("注销"),QString::fromLocal8Bit(""));
@@ -77,7 +78,7 @@ void MainWindow::reshow_user()
         ft->setCellWidget(0,0,btn1);
 
         FunctionBtn *btn2=new FunctionBtn(QString::fromLocal8Bit("管理"),QString::fromLocal8Bit("订单"));
-        //connect
+        connect(btn2,SIGNAL(Btn_clicked()),this,SLOT(open_dlg_order()));
         ft->setCellWidget(0,1,btn2);
 
         FunctionBtn *btn3=new FunctionBtn(QString::fromLocal8Bit("管理"),QString::fromLocal8Bit("酒店"));
@@ -153,6 +154,12 @@ void MainWindow::open_dlg_userInfo()
     Dlg_userInfo *d=new Dlg_userInfo(System::getSystem()->get_user());
     d->exec();
     reshow_user();
+}
+
+void MainWindow::open_dlg_order()
+{
+    Dlg_order *d=new Dlg_order();
+    d->exec();
 }
 
 void MainWindow::on_signoutBtn_clicked()

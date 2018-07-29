@@ -79,13 +79,13 @@ void Order::change_status_to_done()
 
 QString Order::get_status()
 {
-    if(status==STATUS::pending_pay) return "待付款";
-    else if(status==STATUS::checking_payment) return "正在确认付款";
-    else if(status==STATUS::pending_checkin) return "待入住";
-    else if(status==STATUS::pending_comment) return "待评论";
-    else if(status==STATUS::have_refund) return "已退款";
-    else if(status==STATUS::have_cancel) return "订单已取消";
-    else if(status==STATUS::done) return "感谢使用";
+    if(status==STATUS::pending_pay) return "pending_pay";
+    else if(status==STATUS::checking_payment) return "checking_payment";
+    else if(status==STATUS::pending_checkin) return "pending_checkin";
+    else if(status==STATUS::pending_comment) return "pending_comment";
+    else if(status==STATUS::have_refund) return "have_refund";
+    else if(status==STATUS::have_cancel) return "have_cancel";
+    else if(status==STATUS::done) return "done";
     else {
         qDebug()<<"order get status mistake";
         return "NULL";

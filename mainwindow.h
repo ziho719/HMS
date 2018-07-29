@@ -9,6 +9,7 @@
 #include "wgt_room.h"
 #include "dlg_neworder.h"
 #include "dlg_userinfo.h"
+#include "dlg_order.h"
 #include "functionbtn.h"
 #include "system.h"
 #include <memory>
@@ -39,6 +40,7 @@ public slots:
     //void add_new_order();
     void open_dlg_payment(shared_ptr<HotelInfo> info,Room r);
     void open_dlg_userInfo();
+    void open_dlg_order();
 
 signals:
 
