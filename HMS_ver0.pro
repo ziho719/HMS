@@ -32,14 +32,11 @@ SOURCES += \
     hotelinfo.cpp \
     user.cpp \
     customer.cpp \
-    manager.cpp \
-    administrater.cpp \
     functionbtn.cpp \
     order.cpp \
     system.cpp \
     dlg_sign.cpp \
     wgt_hotel.cpp \
-    administrater.cpp \
     customer.cpp \
     dlg_sign.cpp \
     functionbtn.cpp \
@@ -47,13 +44,11 @@ SOURCES += \
     hotelinfo.cpp \
     main.cpp \
     mainwindow.cpp \
-    manager.cpp \
     order.cpp \
     room.cpp \
     system.cpp \
     user.cpp \
     wgt_hotel.cpp \
-    administrater.cpp \
     customer.cpp \
     dlg_sign.cpp \
     functionbtn.cpp \
@@ -61,7 +56,6 @@ SOURCES += \
     hotelinfo.cpp \
     main.cpp \
     mainwindow.cpp \
-    manager.cpp \
     order.cpp \
     room.cpp \
     system.cpp \
@@ -69,7 +63,8 @@ SOURCES += \
     wgt_hotel.cpp \
     wgt_comments.cpp \
     wgt_room.cpp \
-    dlg_neworder.cpp
+    dlg_neworder.cpp \
+    dlg_userinfo.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -119,7 +114,8 @@ HEADERS += \
     wgt_hotel.h \
     wgt_comments.h \
     wgt_room.h \
-    dlg_neworder.h
+    dlg_neworder.h \
+    dlg_userinfo.h
 
 FORMS += \
     mainwindow.ui \
@@ -129,7 +125,8 @@ FORMS += \
     wgt_comments.ui \
     wgt_comments.ui \
     wgt_room.ui \
-    dlg_neworder.ui
+    dlg_neworder.ui \
+    dlg_userinfo.ui
 
 RESOURCES += \
     hotel_pic.qrc

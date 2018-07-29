@@ -1,4 +1,4 @@
-#ifndef CUSTOMER_H
+﻿#ifndef CUSTOMER_H
 #define CUSTOMER_H
 
 #include<QString>
@@ -12,8 +12,9 @@ public:
     Customer(const User& user,const QString& phone)
         :User(user),phone(phone){}
 
-    const QString& get_phone();
+    QString get_phone();
     void edit_phone(const QString& newPhone);
+    QString userType();
 
 private:
     QString phone;

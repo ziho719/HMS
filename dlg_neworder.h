@@ -6,6 +6,7 @@
 #include "hotelinfo.h"
 #include <memory>
 #include "room.h"
+#include <QMessageBox>
 
 namespace Ui {
 class Dlg_newOrder;
@@ -21,6 +22,13 @@ public:
 
 public slots:
     void changeUi();
+
+private slots:
+    void on_pBtn_cancel_clicked();
+
+    void on_pBtn_pay_later_clicked();
+
+    void on_pBtn_pay_now_clicked();
 
 private:
     Ui::Dlg_newOrder *ui;

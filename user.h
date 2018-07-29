@@ -1,4 +1,4 @@
-#ifndef USER_H
+﻿#ifndef USER_H
 #define USER_H
 
 #include<QString>
@@ -11,6 +11,10 @@ public:
         :_name(name), _password(password){}
     User(const User& user);
     virtual ~User(){}
+
+    virtual QString userType(){return "user";}
+    virtual QString get_phone(){return "";}
+    virtual void edit_phone(const QString&){}
 
     const QString& name() const{return _name;}
     const QString& pwd() const{return _password;}

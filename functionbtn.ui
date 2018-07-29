@@ -10,29 +10,98 @@
     <x>0</x>
     <y>0</y>
     <width>80</width>
-    <height>80</height>
+    <height>100</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="Btn">
+  <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>10</y>
      <width>80</width>
      <height>80</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑</family>
-    </font>
+   <property name="title">
+    <string> </string>
    </property>
-   <property name="text">
-    <string>Function</string>
-   </property>
+   <widget class="QPushButton" name="Btn">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labeltop">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>15</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>查看</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labeldown">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>40</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>订单</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <zorder>labeltop</zorder>
+   <zorder>labeldown</zorder>
+   <zorder>Btn</zorder>
   </widget>
  </widget>
  <resources/>

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>酒店预订</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -29,15 +29,15 @@
     </font>
    </property>
    <property name="text">
-    <string>您正在预定：</string>
+    <string>您正在预订：</string>
    </property>
   </widget>
   <widget class="QLabel" name="hotelname">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>40</x>
      <y>50</y>
-     <width>291</width>
+     <width>311</width>
      <height>41</height>
     </rect>
    </property>
@@ -54,7 +54,7 @@
   <widget class="QLabel" name="roomname">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>40</x>
      <y>90</y>
      <width>301</width>
      <height>41</height>
@@ -73,7 +73,7 @@
   <widget class="QLabel" name="roomname_2">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>40</x>
      <y>130</y>
      <width>301</width>
      <height>41</height>

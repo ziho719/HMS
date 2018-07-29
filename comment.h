@@ -15,6 +15,7 @@ public:
     const QString& get_content()const{ return content; }
           double    get_mark()const{return mark;}
 
+
 private:
     const QString userName;
     const QString content;

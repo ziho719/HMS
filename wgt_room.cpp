@@ -34,6 +34,7 @@ void Wgt_room::changeUi()
     }
     else {
         ui->sum->setText(QString::fromLocal8Bit("房间已无"));
+        ui->pBtn_newOrder->close();
     }
 
 }

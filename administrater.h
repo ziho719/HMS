@@ -1,4 +1,4 @@
-#ifndef ADMINISTRATER_H
+﻿#ifndef ADMINISTRATER_H
 #define ADMINISTRATER_H
 
 #include"user.h"
@@ -10,7 +10,7 @@ public:
         :User(name,pwd){}
     Administrater(const User& user)
         :User(user){}
-
+    QString userType() {return "admin";}
 };
 
 #endif // ADMINISTRATER_H
