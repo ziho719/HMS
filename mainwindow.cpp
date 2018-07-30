@@ -42,7 +42,9 @@ void MainWindow::reshow_user()
         ui->username_welcome->setText(QString::fromLocal8Bit("欢迎！").append(System::getSystem()->get_user()->name()));
     else
         ui->username_welcome->setText(QString::fromLocal8Bit("您尚未登录"));
-    //TODO:functionBTn更新
+
+    //以下为functionBTnBox的更新
+
     auto ft=ui->FuntionTable;
     ft->clear();
     ft->setRowCount(1);
@@ -82,7 +84,7 @@ void MainWindow::reshow_user()
         ft->setCellWidget(0,1,btn2);
 
         FunctionBtn *btn3=new FunctionBtn(QString::fromLocal8Bit("管理"),QString::fromLocal8Bit("酒店"));
-        //connect
+        connect(btn3,SIGNAL(Btn_clicked()),this,SLOT(open_dlg_hotel()));
         ft->setCellWidget(0,2,btn3);
 
         FunctionBtn *btn4=new FunctionBtn(QString::fromLocal8Bit("注销"),QString::fromLocal8Bit(""));
@@ -91,7 +93,7 @@ void MainWindow::reshow_user()
     }
     else if(System::getSystem()->get_user()->userType()=="admin"){
         FunctionBtn *btn1=new FunctionBtn(QString::fromLocal8Bit("审核"),QString::fromLocal8Bit("酒店"));
-        //connect
+        connect(btn1,SIGNAL(Btn_clicked()),this,SLOT(open_dlg_hotel()));
         ft->setCellWidget(0,0,btn1);
 
         FunctionBtn *btn2=new FunctionBtn(QString::fromLocal8Bit("添加"),QString::fromLocal8Bit("管理员"));
@@ -159,6 +161,13 @@ void MainWindow::open_dlg_userInfo()
 void MainWindow::open_dlg_order()
 {
     Dlg_order *d=new Dlg_order();
+    d->exec();
+    reshow_hotelInfo(System::getSystem()->get_hotelinfo_checked());
+}
+
+void MainWindow::open_dlg_hotel()
+{
+    Dlg_hotel *d=new Dlg_hotel();
     d->exec();
     reshow_hotelInfo(System::getSystem()->get_hotelinfo_checked());
 }

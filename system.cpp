@@ -57,12 +57,12 @@ void System::initialize()
         Location l5(QString::fromLocal8Bit("广西"),QString::fromLocal8Bit("桂林"),QString::fromLocal8Bit("阳朔"));
         Location l6(QString::fromLocal8Bit("广西"),QString::fromLocal8Bit("北海"),QString::fromLocal8Bit("海城区"));
 
-        Hotel* h1 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("北京酒店式公寓"),l1,"11111",QString::fromLocal8Bit(":/pics/pic/北京机场酒店式公寓.jpg")),"sans");
-        Hotel* h2 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("锦江之星"),l2,"22222",QString::fromLocal8Bit(":/pics/pic/2-锦江之星.jpg")),"sans");
-        Hotel* h3 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("北京泰富酒店"),l3,"333333",QString::fromLocal8Bit(":/pics/pic/北京泰富酒店.jpg")),"papyrus");
-        Hotel* h4 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("桔子酒店"),l4,"444444",QString::fromLocal8Bit(":/pics/pic/桔子酒店.jpg")),"papyrus");
-        Hotel* h5 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("阳朔假日大酒店"),l5,"5555555",QString::fromLocal8Bit(":/pics/pic/阳朔.jpg")),"toriel");
-        Hotel* h6 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("涠洲岛海景酒店"),l6,"66666666",QString::fromLocal8Bit(":/pics/pic/涠洲岛.jpg")),"toriel");
+        Hotel* h1 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("北京酒店式公寓"),l1,"11111"   ,QString::fromLocal8Bit(":/pics/pic/北京机场酒店式公寓.jpg")) ,vector<QString>{"sans"});
+        Hotel* h2 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("锦江之星")     ,l2,"22222"   ,QString::fromLocal8Bit(":/pics/pic/2-锦江之星.jpg"))       ,vector<QString>{"sans","papyrus"});
+        Hotel* h3 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("北京泰富酒店")  ,l3,"333333"  ,QString::fromLocal8Bit(":/pics/pic/北京泰富酒店.jpg"))     ,vector<QString>{"papyrus"});
+        Hotel* h4 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("桔子酒店")     ,l4,"444444"  ,QString::fromLocal8Bit(":/pics/pic/桔子酒店.jpg"))        ,vector<QString>{"papyrus"});
+        Hotel* h5 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("阳朔假日大酒店"),l5,"5555555"  ,QString::fromLocal8Bit(":/pics/pic/阳朔.jpg"))          ,vector<QString>{"toriel"});
+        Hotel* h6 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("涠洲岛海景酒店"),l6,"66666666",QString::fromLocal8Bit(":/pics/pic/涠洲岛.jpg"))         ,vector<QString>{"toriel"});
         h1->change_status_to_checked();
         h2->change_status_to_checked();
         h3->change_status_to_checked();
@@ -270,18 +270,42 @@ vector<Order *> System::select_order()
         return res;
     }
     else if(s->get_user()->userType()=="manager"){
-        qDebug()<<"here?";
         for(auto order:s->get_orders()){
-            if(s->find_hotel(order->get_hotel())->getManagerName()==s->get_user()->name()){
+            if(s->find_hotel(order->get_hotel())->is_manager(s->get_user()->name())){
+                //稍微有点绕，用order里的酒店名，到system里找对应酒店的指针，再判断当前登录用户的名字在不在酒店的管理员列表里
                 res.push_back(order);
-                qDebug()<<"here?";
             }
         }
-        qDebug()<<"here?";
         return res;
     }
     else{
         qDebug()<<"System select order wrong";
+        return res;
+    }
+}
+
+vector<Hotel *> System::select_hotel()
+{
+    auto s=System::getSystem();
+    vector<Hotel *> res;
+    if(s->get_user()->userType()=="manager"){
+        for(auto hotel:hotels){
+            if(hotel->is_manager(s->get_user()->name())){
+                res.push_back(hotel);
+            }
+        }
+        return res;
+    }
+    else if(s->get_user()->userType()=="admin"){
+        for(auto hotel:hotels){
+            if(hotel->get_status()=="unchecked" ||hotel->get_status()=="changed"){
+                res.push_back(hotel);
+            }
+        }
+        return res;
+    }
+    else{
+        qDebug()<<"System select hotel wrong";
         return res;
     }
 }

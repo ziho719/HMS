@@ -25,7 +25,7 @@ void Dlg_order::on_pBtn_all_clicked()
     w->changeUi();
     lw->addItem(item);
     lw->setItemWidget(item,w);
-    for(auto order:System::getSystem()->select_order()){  //here
+    for(auto order:System::getSystem()->select_order()){
         w=new Wgt_order(order);
         connect(w,SIGNAL(success()),this,SLOT(on_pBtn_all_clicked()));
         auto item=new QListWidgetItem;
@@ -47,7 +47,7 @@ void Dlg_order::on_pBtn_need_clicked()
     w->changeUi();
     lw->addItem(item);
     lw->setItemWidget(item,w);
-    for(auto order:System::getSystem()->select_order()){  //here
+    for(auto order:System::getSystem()->select_order()){
         if(System::getSystem()->get_user()->userType()=="customer"){
             if(order->get_status()=="pending_pay" ||
                order->get_status()=="checking_payment" ||
@@ -70,7 +70,7 @@ void Dlg_order::on_pBtn_need_clicked()
                order->get_status()=="pending_checkin")
             {
                 w=new Wgt_order(order);
-                connect(w,SIGNAL(success()),this,SLOT(on_pBtn_all_clicked()));
+                connect(w,SIGNAL(success()),this,SLOT(on_pBtn_need_clicked()));
                 auto item=new QListWidgetItem;
                 item->setSizeHint(w->size());
                 w->changeUi();

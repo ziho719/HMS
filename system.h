@@ -36,10 +36,9 @@ public:
     Manager* add_manager(const QString&name,const QString&pwd);
     Administrater* add_admin(const QString&name,const QString&pwd);
 
-    //TODO:删除用户，有空添加
 
     //获取变量
-    vector<Hotel*>& get_hotels();
+    vector<Hotel*>& get_hotels();   //从没用过的接口
     vector<Order*>& get_orders();
     set<Customer*>& get_customers();
     set<Manager*> & get_managers();
@@ -55,7 +54,8 @@ public:
     Administrater* find_admin(const QString& name);
     Hotel *find_hotel(const QString& name);
 
-    vector<Order*> select_order();
+    vector<Order*> select_order(); //只返回当前用户的订单
+    vector<Hotel *> select_hotel(); //对于酒店管理员，返回所有，对于平台，返回待确认的
 
     //登录、检查pwd
     Customer* check_customer_account(const QString& name,const QString& pwd);
@@ -70,7 +70,8 @@ public:
 
     //更改用户
     void set_user(User* u);
-    //创建listwidget
+
+    //用于创建listwidget的select函数
     vector<shared_ptr<HotelInfo>> get_hotelinfo_checked();
     vector<shared_ptr<HotelInfo>> get_hotelinfo_unchecked();
 
@@ -78,10 +79,10 @@ private:
     System();
     static System *system;
 
-    vector<Hotel*> hotels; //酒店组
-    vector<Order*> orders; //订单组
+    vector<Hotel*> hotels; //酒店容器
+    vector<Order*> orders; //订单容器
 
-    set<Customer*> customers;   //用户信息组
+    set<Customer*> customers;   //用户信息容器
     set<Manager*> managers;
     set<Administrater*> admins; //管理员账户
 
