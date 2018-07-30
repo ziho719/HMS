@@ -21,7 +21,7 @@ void Wgt_hotel_manager::changeUi()
         ui->label_status->setText(QString::fromLocal8Bit("新酒店"));
     }
     else if(hotel->get_status()=="changed"){
-        ui->label_status->setText(QString::fromLocal8Bit("酒店信息修改"));
+        ui->label_status->setText(QString::fromLocal8Bit("信息已修改"));
     }
     else if(hotel->get_status()=="checked"){
         ui->label_status->setText(QString::fromLocal8Bit("已审核"));
@@ -54,7 +54,9 @@ void Wgt_hotel_manager::have_checked()
 void Wgt_hotel_manager::open_dlg_hotelinfo()
 {
     qDebug()<<"open_dlg_hotelinfo";
-    //connect with have_changed
+    Dlg_hotelInfo *d=new Dlg_hotelInfo(hotel);
+    d->exec();
+    changeUi();
 }
 
 void Wgt_hotel_manager::open_dlg_room()

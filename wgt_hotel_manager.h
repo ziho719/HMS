@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "hotel.h"
 #include "system.h"
+#include "dlg_hotelinfo.h"
 #include <QDebug>
 
 namespace Ui {

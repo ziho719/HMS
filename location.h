@@ -13,6 +13,10 @@ public:
     const QString& get_city() const{return city;}
     const QString& get_district() const{return district;}
 
+    void set_province(const QString p)   {province=p;}
+    void set_city(const QString c)        {city=c;}
+    void set_district(const QString d)  {district=d;}
+
 private:
     QString province;
     QString city;

@@ -149,6 +149,7 @@ void MainWindow::open_dlg_payment(shared_ptr<HotelInfo> info, Room r)
     Dlg_newOrder *d=new Dlg_newOrder(info,r);
     d->changeUi();
     d->exec();
+
 }
 
 void MainWindow::open_dlg_userInfo()

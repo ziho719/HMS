@@ -69,7 +69,8 @@ SOURCES += \
     wgt_order.cpp \
     dlg_newcomment.cpp \
     dlg_hotel.cpp \
-    wgt_hotel_manager.cpp
+    wgt_hotel_manager.cpp \
+    dlg_hotelinfo.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -125,7 +126,8 @@ HEADERS += \
     wgt_order.h \
     dlg_newcomment.h \
     dlg_hotel.h \
-    wgt_hotel_manager.h
+    wgt_hotel_manager.h \
+    dlg_hotelinfo.h
 
 FORMS += \
     mainwindow.ui \
@@ -141,7 +143,8 @@ FORMS += \
     wgt_order.ui \
     dlg_newcomment.ui \
     dlg_hotel.ui \
-    wgt_hotel_manager.ui
+    wgt_hotel_manager.ui \
+    dlg_hotelinfo.ui
 
 RESOURCES += \
     hotel_pic.qrc

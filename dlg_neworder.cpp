@@ -40,6 +40,7 @@ void Dlg_newOrder::on_pBtn_pay_later_clicked()
 
     System::getSystem()->add_order(o);
 
+    System::getSystem()->find_hotel(o->get_hotel())->get_hotel_info()->reduce_roomSum(o->get_roomType());
     //打开查询订单界面
 
 }
@@ -54,6 +55,7 @@ void Dlg_newOrder::on_pBtn_pay_now_clicked()
         o=new Order(System::getSystem()->get_user()->name(),info->get_name(),room.get_type(),room.get_discount());
     }
     o->change_status_to_checking_payment();
+    System::getSystem()->find_hotel(o->get_hotel())->get_hotel_info()->reduce_roomSum(o->get_roomType());
     System::getSystem()->add_order(o);
 
     //打开查询订单界面

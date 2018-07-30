@@ -47,5 +47,6 @@ void Wgt_room::on_pBtn_newOrder_clicked()
     else{
         //直接建立订单信息不够，考虑发出信号
         emit newOrder(info,room);
+        changeUi();
     }
 }

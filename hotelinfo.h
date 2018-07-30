@@ -37,7 +37,7 @@ public:
     const QString&         get_name() {return name;}
     const QString&         get_phone() {return phone;}
     const QString&         get_url()     {return url;}
-    const Location&        get_location() {return location;}
+    const Location&        get_location() const {return location;}
     double                 get_mark();
 
 

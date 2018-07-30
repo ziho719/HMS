@@ -25,14 +25,14 @@ class HotelInfo;
 class Hotel
 {
 public:
-    Hotel(const shared_ptr<HotelInfo>& p,const vector<QString>& mn);
+    Hotel(shared_ptr<HotelInfo> p,const vector<QString>& mn);
 
     void change_status_to_unchecked();
     void change_status_to_checked();
     void change_status_to_changed();
     QString get_status();
 
-    const shared_ptr<HotelInfo> get_hotel_info() const;
+    shared_ptr<HotelInfo> get_hotel_info();
 
     const vector<QString>& get_manager();
     bool is_manager(QString name);

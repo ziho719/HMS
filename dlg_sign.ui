@@ -73,6 +73,9 @@
       <height>30</height>
      </rect>
     </property>
+    <property name="placeholderText">
+     <string>请输入用户名</string>
+    </property>
    </widget>
    <widget class="QLabel" name="label_pwd">
     <property name="geometry">
@@ -101,6 +104,15 @@
       <width>150</width>
       <height>30</height>
      </rect>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>请输入密码</string>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">

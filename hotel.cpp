@@ -1,6 +1,6 @@
 ﻿#include "hotel.h"
 
-Hotel::Hotel(const shared_ptr<HotelInfo> &p, const vector<QString> &mn)
+Hotel::Hotel(shared_ptr<HotelInfo> p, const vector<QString> &mn)
 {
     hotel_info=p;
     managerName=mn;
@@ -33,7 +33,7 @@ QString Hotel::get_status()
     }
 }
 
-const shared_ptr<HotelInfo> Hotel::get_hotel_info() const
+shared_ptr<HotelInfo> Hotel::get_hotel_info()
 {
     return hotel_info;
 }

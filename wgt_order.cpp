@@ -135,6 +135,7 @@ void Wgt_order::refund()
     QMessageBox::information(NULL,QString::fromLocal8Bit("退款完成")
                                     ,QString::fromLocal8Bit("不会把所有钱都退回给你的"),QMessageBox::Ok);
     order->change_status_to_have_refund();
+    System::getSystem()->find_hotel(order->get_hotel())->get_hotel_info()->add_roomSum(order->get_roomType());
     emit success();
 }
 
@@ -143,6 +144,7 @@ void Wgt_order::cancel()
     QMessageBox::information(NULL,QString::fromLocal8Bit("已取消")
                                     ,QString::fromLocal8Bit("已取消"),QMessageBox::Ok);
     order->change_status_to_have_cancel();
+    System::getSystem()->find_hotel(order->get_hotel())->get_hotel_info()->add_roomSum(order->get_roomType());
     emit success();
 }
 
@@ -151,6 +153,7 @@ void Wgt_order::checkin()
     QMessageBox::information(NULL,QString::fromLocal8Bit("HMS")
                                     ,QString::fromLocal8Bit("又送走一个"),QMessageBox::Ok);
     order->change_status_to_pending_comment();
+    System::getSystem()->find_hotel(order->get_hotel())->get_hotel_info()->add_roomSum(order->get_roomType());
     emit success();
 }
 
