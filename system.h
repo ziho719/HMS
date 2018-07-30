@@ -53,6 +53,9 @@ public:
     Customer* find_customer(const QString& name);
     Manager* find_manager(const QString& name);
     Administrater* find_admin(const QString& name);
+    Hotel *find_hotel(const QString& name);
+
+    vector<Order*> select_order();
 
     //登录、检查pwd
     Customer* check_customer_account(const QString& name,const QString& pwd);

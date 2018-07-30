@@ -35,19 +35,22 @@ void Wgt_order::changeUi()
         if(System::getSystem()->get_user()->userType()=="customer"){
             if(order->get_status()=="pending_pay"){
                 ui->pBtn->setText(QString::fromLocal8Bit("付款"));
-                //todo:付款界面
+                connect(this,SIGNAL(pBtn_clicked()),SLOT(pay()));
                 ui->status->setText(QString::fromLocal8Bit("待付款"));
             }
             else if(order->get_status()=="checking_payment"){
                 ui->pBtn->setText(QString::fromLocal8Bit("取消订单"));
+                connect(this,SIGNAL(pBtn_clicked()),SLOT(cancel()));
                 ui->status->setText(QString::fromLocal8Bit("待确认"));
             }
             else if(order->get_status()=="pending_checkin"){
                 ui->pBtn->setText(QString::fromLocal8Bit("退款"));
+                connect(this,SIGNAL(pBtn_clicked()),SLOT(refund()));
                 ui->status->setText(QString::fromLocal8Bit("待入住"));
             }
             else if(order->get_status()=="pending_comment"){
                 ui->pBtn->setText(QString::fromLocal8Bit("评论"));
+                connect(this,SIGNAL(pBtn_clicked()),SLOT(open_dlg_newComment()));
                 ui->status->setText(QString::fromLocal8Bit("待评论"));
             }
             else if(order->get_status()=="have_refund"){
@@ -67,14 +70,17 @@ void Wgt_order::changeUi()
         else{
             if(order->get_status()=="pending_pay"){
                 ui->pBtn->setText(QString::fromLocal8Bit("超时，取消该订单"));
+                connect(this,SIGNAL(pBtn_clicked()),SLOT(cancel()));
                 ui->status->setText(QString::fromLocal8Bit("待付款"));
             }
             else if(order->get_status()=="checking_payment"){
-                ui->pBtn->setText(QString::fromLocal8Bit("未收到，取消订单"));
+                ui->pBtn->setText(QString::fromLocal8Bit("已收到付款"));
+                connect(this,SIGNAL(pBtn_clicked()),SLOT(check_pay()));
                 ui->status->setText(QString::fromLocal8Bit("待确认"));
             }
             else if(order->get_status()=="pending_checkin"){
                 ui->pBtn->setText(QString::fromLocal8Bit("已入住"));
+                connect(this,SIGNAL(pBtn_clicked()),SLOT(checkin()));
                 ui->status->setText(QString::fromLocal8Bit("待入住"));
             }
             else if(order->get_status()=="pending_comment"){
@@ -91,7 +97,7 @@ void Wgt_order::changeUi()
             }
             else if(order->get_status()=="done"){
                 ui->pBtn->hide();
-                ui->status->setText(QString::fromLocal8Bit("订单已完成，感谢使用"));
+                ui->status->setText(QString::fromLocal8Bit("订单已完成"));
             }
         }
     }
@@ -101,4 +107,55 @@ void Wgt_order::changeUi()
 void Wgt_order::on_pBtn_clicked()
 {
     emit pBtn_clicked();
+}
+
+void Wgt_order::pay()
+{
+    QMessageBox::information(NULL,QString::fromLocal8Bit("支付完成")
+                                    ,QString::fromLocal8Bit("不要钱，随便住"),QMessageBox::Ok);
+    order->change_status_to_checking_payment();
+    emit success();
+}
+
+void Wgt_order::open_dlg_newComment()
+{
+    Dlg_newComment *d=new Dlg_newComment(order->get_hotel());
+    connect(d,SIGNAL(success()),this,SLOT(newComment_added()));
+    d->exec();
+}
+
+void Wgt_order::newComment_added()
+{
+    order->change_status_to_done();
+    emit success();
+}
+
+void Wgt_order::refund()
+{
+    QMessageBox::information(NULL,QString::fromLocal8Bit("退款完成")
+                                    ,QString::fromLocal8Bit("不会把所有钱都退回给你的"),QMessageBox::Ok);
+    order->change_status_to_have_refund();
+    emit success();
+}
+
+void Wgt_order::cancel()
+{
+    QMessageBox::information(NULL,QString::fromLocal8Bit("已取消")
+                                    ,QString::fromLocal8Bit("已取消"),QMessageBox::Ok);
+    order->change_status_to_have_cancel();
+    emit success();
+}
+
+void Wgt_order::checkin()
+{
+    QMessageBox::information(NULL,QString::fromLocal8Bit("HMS")
+                                    ,QString::fromLocal8Bit("又送走一个"),QMessageBox::Ok);
+    order->change_status_to_pending_comment();
+    emit success();
+}
+
+void Wgt_order::check_pay()
+{
+    order->change_status_to_pending_checkin();
+    emit success();
 }

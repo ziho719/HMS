@@ -31,3 +31,8 @@ const shared_ptr<HotelInfo> Hotel::get_hotel_info() const
 {
     return hotel_info;
 }
+
+QString Hotel::getManagerName() const
+{
+    return managerName;
+}

@@ -14,22 +14,41 @@ void System::initialize()
         System::getSystem()->add_customer("ziho","ziho","18907851172");
         System::getSystem()->add_customer("frisk","frisk","12321412");
         System::getSystem()->add_manager("papyrus","papyrus");
-        System::getSystem()->add_manager("san","san");
+        System::getSystem()->add_manager("sans","sans");
         System::getSystem()->add_manager("toriel","toriel");
         System::getSystem()->add_admin("boss","boss");
         System::getSystem()->add_admin("toby","toby");
 
         Order* o1 =new Order("ziho",QString::fromLocal8Bit("锦江之星"),QString::fromLocal8Bit("商务房B"),666);
         Order* o2 =new Order("ziho",QString::fromLocal8Bit("阳朔假日大酒店"),QString::fromLocal8Bit("缤纷大床房"),458);
-        Order* o3 =new Order("frisk",QString::fromLocal8Bit("北京泰富酒店"),QString::fromLocal8Bit("行政至尊套房"),1228);
-        Order* o4 =new Order("frisk",QString::fromLocal8Bit("涠洲岛隐庐海景酒店"),QString::fromLocal8Bit("海景亲子间"),858);
+        Order* o3 =new Order("ziho",QString::fromLocal8Bit("北京泰富酒店"),QString::fromLocal8Bit("行政至尊套房"),1228);
+        Order* o4 =new Order("ziho",QString::fromLocal8Bit("涠洲岛海景酒店"),QString::fromLocal8Bit("海景亲子间"),858);
+        Order* o5 =new Order("ziho",QString::fromLocal8Bit("锦江之星"),QString::fromLocal8Bit("商务房B"),667);
+        Order* o6 =new Order("frisk",QString::fromLocal8Bit("锦江之星"),QString::fromLocal8Bit("商务房B"),668);
+        Order* o7 =new Order("ziho",QString::fromLocal8Bit("锦江之星"),QString::fromLocal8Bit("商务房B"),669);
+        Order* o8 =new Order("ziho",QString::fromLocal8Bit("锦江之星"),QString::fromLocal8Bit("商务房B"),670);
+        Order* o9 =new Order("ziho",QString::fromLocal8Bit("锦江之星"),QString::fromLocal8Bit("商务房B"),671);
+        Order* o10 =new Order("ziho",QString::fromLocal8Bit("锦江之星"),QString::fromLocal8Bit("商务房B"),672);
         o1->change_status_to_done();
         o2->change_status_to_have_cancel();
-        o3->change_status_to_pending_comment();
+        o3->change_status_to_checking_payment();
+        o4->change_status_to_have_refund();
+        o5->change_status_to_pending_comment();
+        o6->change_status_to_pending_checkin();
+        o7->change_status_to_pending_checkin();
+        o8->change_status_to_checking_payment();
+        o9->change_status_to_pending_comment();
+        o10->change_status_to_have_refund();
         System::getSystem()->add_order(o1);
         System::getSystem()->add_order(o2);
         System::getSystem()->add_order(o3);
         System::getSystem()->add_order(o4);
+        System::getSystem()->add_order(o5);
+        System::getSystem()->add_order(o6);
+        System::getSystem()->add_order(o7);
+        System::getSystem()->add_order(o8);
+        System::getSystem()->add_order(o9);
+        System::getSystem()->add_order(o10);
 
         Location l1(QString::fromLocal8Bit("北京"),QString::fromLocal8Bit("北京"),QString::fromLocal8Bit("朝阳区"));
         Location l2(QString::fromLocal8Bit("北京"),QString::fromLocal8Bit("北京"),QString::fromLocal8Bit("顺义区"));
@@ -38,8 +57,8 @@ void System::initialize()
         Location l5(QString::fromLocal8Bit("广西"),QString::fromLocal8Bit("桂林"),QString::fromLocal8Bit("阳朔"));
         Location l6(QString::fromLocal8Bit("广西"),QString::fromLocal8Bit("北海"),QString::fromLocal8Bit("海城区"));
 
-        Hotel* h1 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("北京酒店式公寓"),l1,"11111",QString::fromLocal8Bit(":/pics/pic/北京机场酒店式公寓.jpg")),"san");
-        Hotel* h2 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("锦江之星"),l2,"22222",QString::fromLocal8Bit(":/pics/pic/2-锦江之星.jpg")),"san");
+        Hotel* h1 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("北京酒店式公寓"),l1,"11111",QString::fromLocal8Bit(":/pics/pic/北京机场酒店式公寓.jpg")),"sans");
+        Hotel* h2 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("锦江之星"),l2,"22222",QString::fromLocal8Bit(":/pics/pic/2-锦江之星.jpg")),"sans");
         Hotel* h3 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("北京泰富酒店"),l3,"333333",QString::fromLocal8Bit(":/pics/pic/北京泰富酒店.jpg")),"papyrus");
         Hotel* h4 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("桔子酒店"),l4,"444444",QString::fromLocal8Bit(":/pics/pic/桔子酒店.jpg")),"papyrus");
         Hotel* h5 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("阳朔假日大酒店"),l5,"5555555",QString::fromLocal8Bit(":/pics/pic/阳朔.jpg")),"toriel");
@@ -226,6 +245,45 @@ Administrater *System::find_admin(const QString &name)
         }
     }
     return NULL;
+}
+
+Hotel *System::find_hotel(const QString &name)
+{
+    for(auto hotel:hotels){
+        if(hotel->get_hotel_info()->get_name()==name){
+            return hotel;
+        }
+    }
+    return NULL;
+}
+
+vector<Order *> System::select_order()
+{
+    auto s=System::getSystem();
+    vector<Order *> res;
+    if(s->get_user()->userType()=="customer"){
+        for(auto order:s->get_orders()){
+            if(order->get_user()==s->get_user()->name()){
+                res.push_back(order);
+            }
+        }
+        return res;
+    }
+    else if(s->get_user()->userType()=="manager"){
+        qDebug()<<"here?";
+        for(auto order:s->get_orders()){
+            if(s->find_hotel(order->get_hotel())->getManagerName()==s->get_user()->name()){
+                res.push_back(order);
+                qDebug()<<"here?";
+            }
+        }
+        qDebug()<<"here?";
+        return res;
+    }
+    else{
+        qDebug()<<"System select order wrong";
+        return res;
+    }
 }
 
 Customer *System::check_customer_account(const QString &name, const QString &pwd)

@@ -29,6 +29,8 @@ public:
 
     const shared_ptr<HotelInfo> get_hotel_info() const;
 
+    QString getManagerName() const;
+
 private:
     shared_ptr<HotelInfo> hotel_info;
     QString managerName;

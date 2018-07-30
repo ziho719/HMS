@@ -160,6 +160,7 @@ void MainWindow::open_dlg_order()
 {
     Dlg_order *d=new Dlg_order();
     d->exec();
+    reshow_hotelInfo(System::getSystem()->get_hotelinfo_checked());
 }
 
 void MainWindow::on_signoutBtn_clicked()

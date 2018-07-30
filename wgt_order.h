@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "system.h"
+#include "dlg_newcomment.h"
+#include <QMessageBox>
 
 namespace Ui {
 class Wgt_order;
@@ -20,8 +22,18 @@ public:
 private slots:
     void on_pBtn_clicked();
 
+public slots:
+    void pay(); //虽然只有一个messageBox
+    void open_dlg_newComment();  //
+    void newComment_added();
+    void refund(); //
+    void cancel();
+    void checkin();
+    void check_pay();
+
 signals:
     void pBtn_clicked();
+    void success();
 
 private:
     Ui::Wgt_order *ui;

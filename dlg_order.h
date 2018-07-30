@@ -16,8 +16,11 @@ public:
     explicit Dlg_order(QWidget *parent = 0);
     ~Dlg_order();
 
+
 private slots:
     void on_pBtn_all_clicked();
+
+    void on_pBtn_need_clicked();
 
 private:
     Ui::Dlg_order *ui;
