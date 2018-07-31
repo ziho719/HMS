@@ -62,7 +62,9 @@ void Wgt_hotel_manager::open_dlg_hotelinfo()
 void Wgt_hotel_manager::open_dlg_room()
 {
     qDebug()<<"open_dlg_room";
-    //connect with have_changed
+    Dlg_roomEdit *d=new Dlg_roomEdit(hotel);
+    d->exec();
+    changeUi();
 }
 
 void Wgt_hotel_manager::open_dlg_managerlist()

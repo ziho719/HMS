@@ -5,6 +5,7 @@
 #include "hotel.h"
 #include "system.h"
 #include "dlg_hotelinfo.h"
+#include "dlg_roomedit.h"
 #include <QDebug>
 
 namespace Ui {

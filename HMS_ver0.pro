@@ -70,7 +70,10 @@ SOURCES += \
     dlg_newcomment.cpp \
     dlg_hotel.cpp \
     wgt_hotel_manager.cpp \
-    dlg_hotelinfo.cpp
+    dlg_hotelinfo.cpp \
+    dlg_roomedit.cpp \
+    wgt_roomedit.cpp \
+    dlg_editroom.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -127,7 +130,10 @@ HEADERS += \
     dlg_newcomment.h \
     dlg_hotel.h \
     wgt_hotel_manager.h \
-    dlg_hotelinfo.h
+    dlg_hotelinfo.h \
+    dlg_roomedit.h \
+    wgt_roomedit.h \
+    dlg_editroom.h
 
 FORMS += \
     mainwindow.ui \
@@ -144,7 +150,10 @@ FORMS += \
     dlg_newcomment.ui \
     dlg_hotel.ui \
     wgt_hotel_manager.ui \
-    dlg_hotelinfo.ui
+    dlg_hotelinfo.ui \
+    dlg_roomedit.ui \
+    wgt_roomedit.ui \
+    dlg_editroom.ui
 
 RESOURCES += \
     hotel_pic.qrc
