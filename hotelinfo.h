@@ -29,18 +29,19 @@ public:
 
     shared_ptr<HotelInfo> add_comment(const Comment& cm);
     shared_ptr<HotelInfo> add_comment(const QString &user,const QString &text,double mark);
-    shared_ptr<HotelInfo> add_room(const Room& r);
+    shared_ptr<HotelInfo> add_room(Room *r);
     shared_ptr<HotelInfo> add_room(QString type,QString url,QString description,double price,int sum,double discount=1);
 
     const vector<Comment>& get_comments() {return Comments;}
-    const vector<Room>&    get_rooms()  {return rooms;}
+    const vector<Room *>&    get_rooms()  {return rooms;}
     const QString&         get_name() {return name;}
     const QString&         get_phone() {return phone;}
     const QString&         get_url()     {return url;}
     const Location&        get_location() const {return location;}
     double                 get_mark();
 
-
+    void add_roomSum(QString type);
+    void reduce_roomSum(QString type);
 private:
     HotelInfo(QString name,Location loca,QString phone,QString url="NULL");
     void initialize(shared_ptr<HotelInfo> ptr);//让类自身保存一个weak引用
@@ -49,7 +50,7 @@ private:
     Location location;
     QString phone;
     vector<Comment> Comments;
-    vector<Room> rooms;
+    vector<Room *> rooms;
     QString url;
 
     weak_ptr<HotelInfo> thisWeakPtr;//自身信息的指针

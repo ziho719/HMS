@@ -32,7 +32,7 @@ public:
     void change_status_to_changed();
     QString get_status();
 
-    shared_ptr<HotelInfo> get_hotel_info();
+    shared_ptr<HotelInfo>& get_hotel_info();
 
     const vector<QString>& get_manager();
     bool is_manager(QString name);

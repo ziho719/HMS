@@ -17,7 +17,7 @@ class Dlg_newOrder : public QDialog
     Q_OBJECT
 
 public:
-    explicit Dlg_newOrder(shared_ptr<HotelInfo> info, Room r,QWidget *parent = 0);
+    explicit Dlg_newOrder(shared_ptr<HotelInfo> info, Room *r,QWidget *parent = 0);
     ~Dlg_newOrder();
 
 public slots:
@@ -33,7 +33,7 @@ private slots:
 private:
     Ui::Dlg_newOrder *ui;
     shared_ptr<HotelInfo> info;
-    Room room;
+    Room *room;
 };
 
 #endif // DLG_NEWORDER_H

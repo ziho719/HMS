@@ -44,15 +44,17 @@ void Room::set_sum(int nSum)
     _sum=nSum;
 }
 
-void Room::operator+=(int num)
+void Room::add_sum()
 {
-    _sum+=num;
+    _sum++;
 }
 
-void Room::operator-=(int num)
+void Room::reduce_sum()
 {
-    _sum-=num;
+    _sum--;
 }
+
+
 
 const QString &Room::get_type() const
 {

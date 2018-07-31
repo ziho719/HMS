@@ -16,7 +16,7 @@ class Wgt_room : public QWidget
     Q_OBJECT
 
 public:
-    explicit Wgt_room(shared_ptr<HotelInfo> info,Room r,QWidget *parent = 0);
+    explicit Wgt_room(shared_ptr<HotelInfo> info, Room *r, QWidget *parent = 0);
     ~Wgt_room();
 public slots:
     void changeUi();
@@ -25,11 +25,11 @@ private slots:
     void on_pBtn_newOrder_clicked();
 
 signals:
-    void newOrder(shared_ptr<HotelInfo> info,Room r);
+    void newOrder(shared_ptr<HotelInfo> info,Room *r);
 
 private:
     Ui::Wgt_room *ui;
-    Room room;
+    Room *room;
     QPixmap pic;
     shared_ptr<HotelInfo> info;
 };

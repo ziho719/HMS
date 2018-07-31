@@ -131,20 +131,20 @@ void MainWindow::show_room(shared_ptr<HotelInfo> &info)
 {
     auto lw=ui->list_detail;
     lw->clear();
-    for(Room room:info->get_rooms()){
+    for(Room *room:info->get_rooms()){
         Wgt_room *w=new Wgt_room(info,room,this);
         auto item=new QListWidgetItem;
         item->setSizeHint(w->size());
         w->changeUi();
         lw->addItem(item);
         lw->setItemWidget(item,w);
-        connect(w,SIGNAL(newOrder(shared_ptr<HotelInfo>,Room)),this,SLOT(open_dlg_payment(shared_ptr<HotelInfo>,Room)));
+        connect(w,SIGNAL(newOrder(shared_ptr<HotelInfo>,Room *)),this,SLOT(open_dlg_payment(shared_ptr<HotelInfo>,Room *)));
     }
     ui->label_whatitis->setText(QString::fromLocal8Bit("查看房间,当前酒店为：")+info->get_name());
 
 }
 
-void MainWindow::open_dlg_payment(shared_ptr<HotelInfo> info, Room r)
+void MainWindow::open_dlg_payment(shared_ptr<HotelInfo> info, Room *r)
 {
     Dlg_newOrder *d=new Dlg_newOrder(info,r);
     d->changeUi();
@@ -157,6 +157,7 @@ void MainWindow::open_dlg_userInfo()
     Dlg_userInfo *d=new Dlg_userInfo(System::getSystem()->get_user());
     d->exec();
     reshow_user();
+
 }
 
 void MainWindow::open_dlg_order()
@@ -164,6 +165,8 @@ void MainWindow::open_dlg_order()
     Dlg_order *d=new Dlg_order();
     d->exec();
     reshow_hotelInfo(System::getSystem()->get_hotelinfo_checked());
+    ui->list_detail->clear();
+    ui->label_whatitis->clear();
 }
 
 void MainWindow::open_dlg_hotel()

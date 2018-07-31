@@ -33,7 +33,7 @@ QString Hotel::get_status()
     }
 }
 
-shared_ptr<HotelInfo> Hotel::get_hotel_info()
+shared_ptr<HotelInfo> &Hotel::get_hotel_info()
 {
     return hotel_info;
 }

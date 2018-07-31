@@ -39,7 +39,7 @@ public slots:
     void reshow_hotelInfo(const vector<shared_ptr<HotelInfo> > &hotels);  //hotel的筛选等操作由类中实现
     void show_room(shared_ptr<HotelInfo> &info);
     //void add_new_order();
-    void open_dlg_payment(shared_ptr<HotelInfo> info,Room r);
+    void open_dlg_payment(shared_ptr<HotelInfo> info,Room *r);
     void open_dlg_userInfo();
     void open_dlg_order();
     void open_dlg_hotel();

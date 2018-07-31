@@ -16,8 +16,9 @@ public:
     void set_price(double newPrice);
     void set_discount(double newDiscount);
     void set_sum(int nSum);
-    void operator+=(int num); //增加_sum，如旅客退房等
-    void operator-=(int num); //减少
+
+    void add_sum();     //之前重载了+=运算符，没有用
+    void reduce_sum();
 
     const QString&   get_type() const;
     const QString&   get_url() const;
