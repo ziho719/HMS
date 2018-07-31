@@ -11,6 +11,7 @@
 #include "dlg_userinfo.h"
 #include "dlg_hotel.h"
 #include "dlg_order.h"
+#include "dlg_addmenber.h"
 #include "functionbtn.h"
 #include "system.h"
 #include <memory>
@@ -33,6 +34,7 @@ public:
 private slots:
     void on_signInBtn_clicked(); //登录按钮按下-(如果没有登录)-打开登录界面
     void on_signoutBtn_clicked();
+    void on_sort_confirm_clicked();
 
 public slots:
     void reshow_user(); //登录、注册、注销成功时界面的更改，不改变hotelinfo部分
@@ -43,8 +45,7 @@ public slots:
     void open_dlg_userInfo();
     void open_dlg_order();
     void open_dlg_hotel();
-signals:
-
+    void open_dlg_newmember();
 
 private:
     Ui::MainWindow *ui;

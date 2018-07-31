@@ -20,6 +20,7 @@ void Wgt_roomEdit::on_pBtn_clicked()
     Dlg_editRoom *d=new Dlg_editRoom(room);
     connect(d,SIGNAL(success()),this,SLOT(have_changed()));
     d->exec();
+
 }
 
 void Wgt_roomEdit::have_changed()

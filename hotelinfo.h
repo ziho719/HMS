@@ -7,6 +7,7 @@
 #include "comment.h"
 #include "room.h"
 #include "location.h"
+#include <QRegExp>
 
 using namespace std;
 class Comment;
@@ -37,11 +38,15 @@ public:
     const QString&         get_name() {return name;}
     const QString&         get_phone() {return phone;}
     const QString&         get_url()     {return url;}
-    const Location&        get_location() const {return location;}
-    double                 get_mark();
+          Location&        get_location()  {return location;}
+            double         get_mark();
+            double         get_lowest_price();
 
     void add_roomSum(QString type);
     void reduce_roomSum(QString type);
+
+    bool match(QString keyWord);
+
 private:
     HotelInfo(QString name,Location loca,QString phone,QString url="NULL");
     void initialize(shared_ptr<HotelInfo> ptr);//让类自身保存一个weak引用

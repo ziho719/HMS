@@ -2,7 +2,7 @@
 #define SYSTEM_H
 
 
-
+#include <algorithm>
 #include <vector>
 #include <set>
 #include <memory>
@@ -65,6 +65,7 @@ public:
     //检查重名
     bool check_name_available(const QString& name);
 
+    //新建操作
     void add_hotel(Hotel* newHotel);
     void add_order(Order* newOrder);
 
@@ -72,8 +73,9 @@ public:
     void set_user(User* u);
 
     //用于创建listwidget的select函数
-    vector<shared_ptr<HotelInfo>> get_hotelinfo_checked();
+    vector<shared_ptr<HotelInfo>> get_hotelinfo_checked(QString loca="",QString keyWord="",QString Mode="");
     vector<shared_ptr<HotelInfo>> get_hotelinfo_unchecked();
+
 
 private:
     System();

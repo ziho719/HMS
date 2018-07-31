@@ -32,3 +32,15 @@ void Dlg_hotel::show_list()
         connect(w,SIGNAL(success()),this,SLOT(show_list()));
     }
 }
+
+void Dlg_hotel::on_pBtn_newHotel_clicked()
+{
+    auto s=System::getSystem();
+    Location l1(QString::fromLocal8Bit(""),QString::fromLocal8Bit(""),QString::fromLocal8Bit(""));
+    Hotel* h1 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit(""),l1,""
+                                                 ,QString::fromLocal8Bit(":/pics/pic/演示.jpg")) ,vector<QString>{s->get_user()->name()});
+    h1->change_status_to_unchecked();
+    s->add_hotel(h1);
+    show_list();
+
+}

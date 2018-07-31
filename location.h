@@ -2,6 +2,7 @@
 #define LOCATION_H
 
 #include<QString>
+#include<QRegExp>
 
 class Location
 {
@@ -17,6 +18,14 @@ public:
     void set_city(const QString c)        {city=c;}
     void set_district(const QString d)  {district=d;}
 
+    bool match(QString loca)
+    {
+        QRegExp r("\\w*"+loca+"\\w*");
+        if(r.exactMatch(province+city+district))
+            return true;
+        else return false;
+    }
+
 private:
     QString province;
     QString city;
@@ -25,3 +34,5 @@ private:
 };
 
 #endif // LOCATION_H
+
+

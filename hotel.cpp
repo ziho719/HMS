@@ -54,7 +54,7 @@ bool Hotel::is_manager(QString name)
 bool Hotel::add_manager(QString name)
 {
     auto s=System::getSystem();
-    if(s->find_manager(name)!=NULL){
+    if(s->find_manager(name)==NULL){
         return false;
     }
     else if(is_manager(name)){

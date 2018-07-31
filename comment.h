@@ -2,7 +2,6 @@
 #define COMMENT_H
 
 #include<QString>
-//TODO: time funtion
 using namespace std;
 
 class Comment
@@ -20,7 +19,6 @@ private:
     const QString userName;
     const QString content;
           double     mark;
-    //time
 };
 
 #endif // COMMENT_H

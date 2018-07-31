@@ -42,7 +42,7 @@ void Wgt_hotel_manager::changeUi()
 
 void Wgt_hotel_manager::have_changed()
 {
-    hotel->change_status_to_changed();
+    if(hotel->get_status()!="uncheck") hotel->change_status_to_changed();
 }
 
 void Wgt_hotel_manager::have_checked()
@@ -70,7 +70,9 @@ void Wgt_hotel_manager::open_dlg_room()
 void Wgt_hotel_manager::open_dlg_managerlist()
 {
     qDebug()<<"open_dlg_hotelinfo";
-    //想改就改
+    Dlg_addmenber *d=new Dlg_addmenber(hotel);
+    d->exec();
+    changeUi();
 }
 
 void Wgt_hotel_manager::on_edit_info_or_look_info_clicked()

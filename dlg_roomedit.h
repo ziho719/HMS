@@ -19,6 +19,9 @@ public:
 public slots:
     void have_changed(); //变成待审核
     void show_room();
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::Dlg_roomEdit *ui;
     Hotel *hotel;

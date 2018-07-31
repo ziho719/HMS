@@ -88,3 +88,4 @@ const int &Room::get_sum() const
 {
     return _sum;
 }
+

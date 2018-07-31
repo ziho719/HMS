@@ -21,6 +21,9 @@ public:
 public slots:
     void show_list();
 
+private slots:
+    void on_pBtn_newHotel_clicked();
+
 private:
     Ui::Dlg_hotel *ui;
 };

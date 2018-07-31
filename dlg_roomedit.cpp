@@ -7,6 +7,10 @@ Dlg_roomEdit::Dlg_roomEdit(Hotel *hotel, QWidget *parent) :
 {
     ui->setupUi(this);
     show_room();
+    if(System::getSystem()->get_user()->userType()=="admin")
+    {
+        ui->pushButton->hide();
+    }
 }
 
 Dlg_roomEdit::~Dlg_roomEdit()
@@ -16,7 +20,10 @@ Dlg_roomEdit::~Dlg_roomEdit()
 
 void Dlg_roomEdit::have_changed()
 {
-    hotel->change_status_to_changed();
+    if(hotel->get_status()!=unchecked)
+    {
+        hotel->change_status_to_changed();
+    }
     show_room();
 }
 
@@ -32,4 +39,11 @@ void Dlg_roomEdit::show_room()
         lw->setItemWidget(item,w);
         connect(w,SIGNAL(success()),this,SLOT(have_changed()));
     }
+}
+
+void Dlg_roomEdit::on_pushButton_clicked()
+{
+    hotel->get_hotel_info()->add_room(QString::fromLocal8Bit("")
+                                      ,QString::fromLocal8Bit(":/pics/pic/4-森林.jpg"),QString::fromLocal8Bit(""),0,0);
+    show_room();
 }

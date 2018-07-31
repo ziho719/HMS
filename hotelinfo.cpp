@@ -62,11 +62,23 @@ shared_ptr<HotelInfo> HotelInfo::add_room(QString type, QString url, QString des
 double HotelInfo::get_mark()
 {
     size_t n=Comments.size();
+    if(n==0) return 0;
     double count=0;
     for(int i=0;i<n;i++){
         count+=Comments[i].get_mark();
     }
     return count/n;
+}
+
+double HotelInfo::get_lowest_price()
+{
+    double res=1000000000;
+    for(auto room:rooms){
+        if(res>room->get_price()){
+            res=room->get_price();
+        }
+    }
+    return res;
 }
 
 void HotelInfo::add_roomSum(QString type)
@@ -85,6 +97,21 @@ void HotelInfo::reduce_roomSum(QString type)
             room->reduce_sum();
         }
     }
+}
+
+bool HotelInfo::match(QString keyWord)
+{
+    QRegExp r("\\w*"+keyWord+"\\w*");
+    if(r.exactMatch(name))
+        return true;
+    else{
+        for(auto room:rooms){
+            if(r.exactMatch(room->get_type()) ||r.exactMatch(room->get_description())){
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 HotelInfo::HotelInfo(QString name, Location loca, QString phone, QString url)

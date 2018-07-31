@@ -27,6 +27,7 @@ public:
     const double &   get_discount();
     const int    &   get_sum()const;
 
+
 private:
     QString _type;  //房型或房名
     QString _url;   //图片

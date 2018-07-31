@@ -169,14 +169,20 @@
       <height>151</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string/>
     </property>
     <widget class="QPushButton" name="searchBtn">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>10</y>
+       <x>340</x>
+       <y>50</y>
        <width>101</width>
        <height>31</height>
       </rect>
@@ -191,23 +197,31 @@
       <string>搜索</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="searchTest">
+    <widget class="QLineEdit" name="search_key">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>161</width>
-       <height>31</height>
+       <x>90</x>
+       <y>50</y>
+       <width>241</width>
+       <height>29</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="placeholderText">
+      <string>(选填)酒店名/房间型</string>
      </property>
     </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>50</y>
-       <width>401</width>
-       <height>71</height>
+       <x>10</x>
+       <y>10</y>
+       <width>81</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -216,7 +230,133 @@
       </font>
      </property>
      <property name="text">
-      <string>//TO DO: 符合特定条件的酒店和客房筛选的UI 排序</string>
+      <string>目的地：</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="search_loca">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>10</y>
+       <width>241</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="placeholderText">
+      <string>地址</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>关键词：</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>排序：</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rBtn_mark">
+     <property name="geometry">
+      <rect>
+       <x>65</x>
+       <y>110</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>评分由高到低</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rBtn_price_down">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>110</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>价格由高到低</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rBtn_price_up">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>110</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>价格由低到高</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="sort_confirm">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>110</y>
+       <width>93</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>确定</string>
      </property>
     </widget>
    </widget>

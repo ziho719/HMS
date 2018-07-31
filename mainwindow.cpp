@@ -97,7 +97,7 @@ void MainWindow::reshow_user()
         ft->setCellWidget(0,0,btn1);
 
         FunctionBtn *btn2=new FunctionBtn(QString::fromLocal8Bit("添加"),QString::fromLocal8Bit("管理员"));
-        //connect
+        connect(btn2,SIGNAL(Btn_clicked()),this,SLOT(open_dlg_newmember()));
         ft->setCellWidget(0,1,btn2);
 
         FunctionBtn *btn3=new FunctionBtn(QString::fromLocal8Bit("注销"),QString::fromLocal8Bit(""));
@@ -176,6 +176,12 @@ void MainWindow::open_dlg_hotel()
     reshow_hotelInfo(System::getSystem()->get_hotelinfo_checked());
 }
 
+void MainWindow::open_dlg_newmember()
+{
+    Dlg_addmenber *d=new Dlg_addmenber(NULL);
+    d->exec();
+}
+
 void MainWindow::on_signoutBtn_clicked()
 {
     auto s=System::getSystem();
@@ -188,4 +194,20 @@ void MainWindow::on_signoutBtn_clicked()
         QMessageBox::information(NULL,QString::fromLocal8Bit("酒店管理系统")
                                  ,QString::fromLocal8Bit("您尚未登录"),QMessageBox::Ok);
     }
+}
+
+void MainWindow::on_sort_confirm_clicked()
+{
+    QString loca=ui->search_loca->text();
+    QString key=ui->search_key->text();
+    QString Mode;
+    if(ui->rBtn_mark->isChecked())
+        Mode="mark_down";
+    else if(ui->rBtn_price_down->isChecked())
+        Mode="price_down";
+    else if(ui->rBtn_price_up->isChecked())
+        Mode="price_up";
+    else
+        Mode="";
+    reshow_hotelInfo(System::getSystem()->get_hotelinfo_checked(loca,key,Mode));
 }

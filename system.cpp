@@ -366,13 +366,42 @@ void System::set_user(User *u)
     user=u;
 }
 
-vector<shared_ptr<HotelInfo> > System::get_hotelinfo_checked()
+vector<shared_ptr<HotelInfo> > System::get_hotelinfo_checked(QString loca, QString keyWord, QString Mode)
 {
     vector<shared_ptr<HotelInfo> > res;
     for(int i=0;i<hotels.size();i++){
-        if(hotels[i]->get_status()=="checked")
-            res.push_back(hotels[i]->get_hotel_info());
+        if(hotels[i]->get_status()=="checked"){
+            if(loca!="" && !hotels[i]->get_hotel_info()->get_location().match(loca)){
+                continue;
+            }
+            if(keyWord!="" && !hotels[i]->get_hotel_info()->match(keyWord)){
+                continue;
+            }
+
+            res.push_back(hotels[i]->get_hotel_info()); //筛掉不符合条件的
+        }
     }
+    if(Mode!=""){
+        if(Mode=="mark_down"){
+            sort(res.begin(),res.end(),[](shared_ptr<HotelInfo> a,shared_ptr<HotelInfo> b)
+            {
+                return a->get_mark()>b->get_mark(); //lambda表达式
+            });
+        }
+        else if(Mode=="price_down"){
+            sort(res.begin(),res.end(),[](shared_ptr<HotelInfo> a,shared_ptr<HotelInfo> b)
+            {
+                return a->get_lowest_price()>b->get_lowest_price();
+            });
+        }
+        else if(Mode=="price_up"){
+            sort(res.begin(),res.end(),[](shared_ptr<HotelInfo> a,shared_ptr<HotelInfo> b)
+            {
+                return a->get_lowest_price()<b->get_lowest_price();
+            });
+        }
+    }
+
     return res;
 }
 
