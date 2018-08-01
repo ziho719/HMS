@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QCloseEvent>
 #include "dlg_sign.h"
 #include <QMessageBox>
 #include <QPixmap>
@@ -46,6 +47,7 @@ public slots:
     void open_dlg_order();
     void open_dlg_hotel();
     void open_dlg_newmember();
+    void closeEvent(QCloseEvent *event);
 
 private:
     Ui::MainWindow *ui;

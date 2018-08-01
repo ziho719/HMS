@@ -182,6 +182,14 @@ void MainWindow::open_dlg_newmember()
     d->exec();
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    qDebug()<<"close event success";
+    Database::write_all();
+    event->accept();
+
+}
+
 void MainWindow::on_signoutBtn_clicked()
 {
     auto s=System::getSystem();

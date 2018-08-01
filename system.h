@@ -14,6 +14,7 @@
 #include "order.h"
 #include "hotel.h"
 #include "customer.h"
+#include "database.h"
 using namespace std;
 
 class Hotel;
@@ -32,8 +33,8 @@ public:
     ~System();
 
     //添加用户
-    Customer* add_customer(const QString&name,const QString&pwd,const QString& phone);
-    Manager* add_manager(const QString&name,const QString&pwd);
+    Customer* add_customer(const QString&name,const QString&pwd,QString phone="");
+    Manager* add_manager(const QString&name,const QString&pwd,QString phone="");
     Administrater* add_admin(const QString&name,const QString&pwd);
 
 

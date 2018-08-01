@@ -5,8 +5,8 @@
 class Manager : public User
 {
 public:
-    Manager(const QString& name,const QString& pwd)
-        :User(name,pwd){}
+    Manager(const QString& name,const QString& pwd,QString phone="")
+        :User(name,pwd),phone(phone){}
     Manager(const User& user)
         :User(user){}
     QString userType(){return "manager";}

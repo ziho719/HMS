@@ -9,6 +9,8 @@ class Location
 public:
     Location(QString province,QString city,QString district)
         :province(province),city(city),district(district){}
+    Location()
+        :province(""),city(""),district(""){}
 
     const QString& get_province() const{return province;}
     const QString& get_city() const{return city;}

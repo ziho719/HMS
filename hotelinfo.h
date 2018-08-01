@@ -17,7 +17,7 @@ class Location;
 class HotelInfo
 {
 public:
-    static shared_ptr<HotelInfo> newHotelInfo(QString name,Location loca,QString phone,QString url="NULL");
+    static shared_ptr<HotelInfo> newHotelInfo(QString name="",Location loca=Location(),QString phone="",QString url="");
     shared_ptr<HotelInfo> get_shared_ptr();
 
     HotelInfo(const HotelInfo &) =delete;
@@ -48,7 +48,7 @@ public:
     bool match(QString keyWord);
 
 private:
-    HotelInfo(QString name,Location loca,QString phone,QString url="NULL");
+    HotelInfo(QString name="",Location loca=Location(),QString phone="",QString url="");
     void initialize(shared_ptr<HotelInfo> ptr);//让类自身保存一个weak引用
 
     QString name;

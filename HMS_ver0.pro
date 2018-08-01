@@ -5,7 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui
-QT += gui
+QT       += gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -74,7 +75,8 @@ SOURCES += \
     dlg_roomedit.cpp \
     wgt_roomedit.cpp \
     dlg_editroom.cpp \
-    dlg_addmenber.cpp
+    dlg_addmenber.cpp \
+    database.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -135,7 +137,8 @@ HEADERS += \
     dlg_roomedit.h \
     wgt_roomedit.h \
     dlg_editroom.h \
-    dlg_addmenber.h
+    dlg_addmenber.h \
+    database.h
 
 FORMS += \
     mainwindow.ui \

@@ -8,7 +8,7 @@ class Room
 {
 public:
     Room();
-    Room(QString type, QString url, QString description, double price, int sum, double discount=-1); //构造
+    Room(QString type="", QString url="", QString description="", double price=0, int sum=0, double discount=-1); //构造
 
     void set_type(QString newType);
     void set_url(QString newurl);

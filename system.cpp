@@ -5,8 +5,12 @@ System* System::system=new System(); //初始化私有静态变量
 
 void System::initialize()
 {
-    if(false){
-        //连接到数据库后
+    QSqlDatabase db;
+    Database::connect(db);
+    if(0){
+       qDebug()<<"connect successfully!!!!";
+       System::getSystem()->set_user(NULL);
+       Database::read_all();
     }
     else{
         //否则
@@ -71,7 +75,7 @@ void System::initialize()
         h6->change_status_to_checked();
 
         //here...........
-        h1->get_hotel_info()->add_room(QString::fromLocal8Bit("精品大床房"),QString::fromLocal8Bit(":/pics/pic/1-精.jpg"),QString::fromLocal8Bit("大床"),501,10);
+
         h1->get_hotel_info()->add_room(QString::fromLocal8Bit("温馨标准间"),QString::fromLocal8Bit(":/pics/pic/1-温.jpg"),QString::fromLocal8Bit("单床"),501,0);
         h1->get_hotel_info()->add_room(QString::fromLocal8Bit("豪华商务套房"),QString::fromLocal8Bit(":/pics/pic/1-豪华.jpg"),QString::fromLocal8Bit("大床"),578,3);
         h2->get_hotel_info()->add_room(QString::fromLocal8Bit("标准房"),QString::fromLocal8Bit(":/pics/pic/2-标.jpg"),QString::fromLocal8Bit("多床"),659,5,619);
@@ -139,16 +143,16 @@ System::~System()
     qDebug()<<"system destroy";
 }
 
-Customer *System::add_customer(const QString &name, const QString &pwd, const QString &phone)
+Customer *System::add_customer(const QString &name, const QString &pwd, QString phone)
 {
     Customer* ptr=new Customer(name,pwd,phone);
     customers.insert(ptr);
     return ptr;
 }
 
-Manager *System::add_manager(const QString &name, const QString &pwd)
+Manager *System::add_manager(const QString &name, const QString &pwd,QString phone)
 {
-    Manager *ptr=new Manager(name,pwd);
+    Manager *ptr=new Manager(name,pwd,phone);
     managers.insert(ptr);
     return ptr;
 }
