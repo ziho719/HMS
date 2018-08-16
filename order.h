@@ -29,7 +29,7 @@ public:
     const QString & get_roomType();
           double    get_money();
 
-    //可能不会使用
+    //可能不会使用（确实没有使用，订单一下达就不应该更改了，但保留）
     void edit_user(const QString& u);
     void edit_hotel(const QString& h);
     void edit_roomType(const QString& r);

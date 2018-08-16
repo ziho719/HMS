@@ -6,6 +6,9 @@
 #include "dlg_editroom.h"
 
 
+//UI的一个组件
+
+
 namespace Ui {
 class Wgt_roomEdit;
 }

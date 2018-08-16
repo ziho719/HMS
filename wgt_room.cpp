@@ -44,6 +44,12 @@ void Wgt_room::on_pBtn_newOrder_clicked()
     if(System::getSystem()->get_user()==NULL)
         QMessageBox::information(NULL,QString::fromLocal8Bit("酒店管理系统")
                                  ,QString::fromLocal8Bit("需要先登录才能预定房间！"),QMessageBox::Ok);
+    else if(System::getSystem()->get_user()->userType()=="manager")
+        QMessageBox::information(NULL,QString::fromLocal8Bit("酒店管理系统")
+                                 ,QString::fromLocal8Bit("不要使用酒店管理员账户预订房间"),QMessageBox::Ok);
+    else if(System::getSystem()->get_user()->userType()=="admin")
+        QMessageBox::information(NULL,QString::fromLocal8Bit("酒店管理系统")
+                                 ,QString::fromLocal8Bit("不要使用平台管理员账户预订房间"),QMessageBox::Ok);
     else{
         //直接建立订单信息不够，考虑发出信号
         emit newOrder(info,room);

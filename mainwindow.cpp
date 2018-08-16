@@ -8,16 +8,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->signInBtn->close();
+    ui->signInBtn->close();  //废弃的button
     ui->signoutBtn->close();
-    //初始化signDlg
-    signDlg=new dlg_sign();
+
+    signDlg=new dlg_sign(); //初始化signDlg
     connect(signDlg,SIGNAL(success()),this,SLOT(reshow_user()));
     reshow_user();
-    //初始化hotellist
 
-    reshow_hotelInfo(System::getSystem()->get_hotelinfo_checked());
+    //显示酒店列表
+    reshow_hotelInfo(System::getSystem()->get_hotelinfo_checked());//初始化hotellist
 
+    //只是一些有趣的东西
+    QMenu *m=new QMenu(QString::fromLocal8Bit("帮助"));
+    QAction *a=new QAction(QString::fromLocal8Bit("关于软件"),this);
+    m->addAction(a);
+    ui->menuBar->addMenu(m);
+    connect(ui->menuBar,SIGNAL(triggered(QAction*)),this,SLOT(tri(QAction*)));
 
 }
 
@@ -43,8 +49,8 @@ void MainWindow::reshow_user()
     else
         ui->username_welcome->setText(QString::fromLocal8Bit("您尚未登录"));
 
-    //以下为functionBTnBox的更新
-
+    //以下为functionBTnBox的更新，由用户改变而改变，用了functionbtn中的组件，
+    //同样的信号连接不同的槽函数，在槽函数中实现功能
     auto ft=ui->FuntionTable;
     ft->clear();
     ft->setRowCount(1);
@@ -123,7 +129,6 @@ void MainWindow::reshow_hotelInfo(const vector<shared_ptr<HotelInfo>>& hotels)
         lw->setItemWidget(item,w);
 
         connect(w,SIGNAL(pBtn_room_clicked(shared_ptr<HotelInfo>&)),this,SLOT(show_room(shared_ptr<HotelInfo>&)));
-        //TODO:connect
     }
 }
 
@@ -185,9 +190,19 @@ void MainWindow::open_dlg_newmember()
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     qDebug()<<"close event success";
-    Database::write_all();
+    QMessageBox::information(NULL,QString::fromLocal8Bit("酒店管理系统")
+                             ,QString::fromLocal8Bit("数据已存储"),QMessageBox::Ok);
+    Database::write_all();   //存进数据库
     event->accept();
 
+}
+
+void MainWindow::tri(QAction *act)
+{
+    if(act->text()==QString::fromLocal8Bit("关于软件")){
+        Wgt_about *w=new Wgt_about();
+        w->show();
+    }
 }
 
 void MainWindow::on_signoutBtn_clicked()
@@ -217,5 +232,5 @@ void MainWindow::on_sort_confirm_clicked()
         Mode="price_up";
     else
         Mode="";
-    reshow_hotelInfo(System::getSystem()->get_hotelinfo_checked(loca,key,Mode));
+    reshow_hotelInfo(System::getSystem()->get_hotelinfo_checked(loca,key,Mode)); //排序工作由System完成
 }

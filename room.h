@@ -17,7 +17,7 @@ public:
     void set_discount(double newDiscount);
     void set_sum(int nSum);
 
-    void add_sum();     //之前重载了+=运算符，没有用
+    void add_sum();     //之前重载了+=运算符，没有用，增加该类房间数量
     void reduce_sum();
 
     const QString&   get_type() const;

@@ -4,6 +4,8 @@
 #include<QString>
 #include "user.h"
 
+
+
 class Customer:public User
 {
 public:

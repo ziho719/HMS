@@ -6,6 +6,9 @@
 #include "dlg_newcomment.h"
 #include <QMessageBox>
 
+
+//UI的一个组件
+
 namespace Ui {
 class Wgt_order;
 }

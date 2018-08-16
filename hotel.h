@@ -7,18 +7,22 @@
 #include <vector>
 #include "system.h"
 
+//酒店类
+
 using namespace std;
 
-namespace HotelStatus {
+namespace HotelStatus {  //定义了酒店状态
     enum STATUS{
         unchecked,
         changed,
         checked,
+        unpassed,
     };
 }
 using HotelStatus::checked;
 using HotelStatus::unchecked;
 using HotelStatus::changed;
+using HotelStatus::unpassed;
 
 class HotelInfo;
 
@@ -27,14 +31,15 @@ class Hotel
 public:
     Hotel(shared_ptr<HotelInfo> p,const vector<QString>& mn);
 
-    void change_status_to_unchecked();
+    void change_status_to_unchecked();   //与状态有关函数
     void change_status_to_checked();
     void change_status_to_changed();
+    void change_status_to_unpassed();
     QString get_status();
 
     shared_ptr<HotelInfo>& get_hotel_info();
 
-    const vector<QString>& get_manager();
+    const vector<QString>& get_manager();  //与管理员有关函数
     bool is_manager(QString name);
     bool add_manager(QString name);
 

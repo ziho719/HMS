@@ -29,10 +29,22 @@ void Wgt_hotel::changeUi()
         loca=info->get_location().get_province();
         loca.append(" ").append(info->get_location().get_city()).append(" ").append(info->get_location().get_district());
     }
-    ui->l_lacation->setText(loca);
+    ui->l_lacation->setText(QString::fromLocal8Bit("地址： ")+loca);
 
-    ui->l_phone->setText(info->get_phone());
+    ui->l_phone->setText(QString::fromLocal8Bit("电话： ")+info->get_phone());
     ui->l_mark->setText(QString::fromLocal8Bit("评分：")+QString::number(info->get_mark(),'f',1));
+    if(info->get_mark()>=4.8){
+        ui->l_mark->setStyleSheet("color:#FFBB00");
+    }
+    else if(info->get_mark()>=4.5){
+        ui->l_mark->setStyleSheet("color:#77FF00");
+    }
+    else if(info->get_mark()>=4){
+        ui->l_mark->setStyleSheet("color:#00FFFF");
+    }
+    else{
+        ui->l_mark->setStyleSheet("color:#000000");
+    }
 }
 
 void Wgt_hotel::on_pBtn_comment_clicked()

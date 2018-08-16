@@ -1,6 +1,6 @@
 ﻿#include "database.h"
 
-bool Database::connect(QSqlDatabase &db)
+bool Database::connect(QSqlDatabase &db)  //连接数据库
 {
     db=QSqlDatabase::addDatabase("QSQLITE");
     db.setUserName("root");
@@ -252,6 +252,7 @@ void Database::read_hotel()
         if(status=="checked") h->change_status_to_checked();
         else if(status=="unchecked") h->change_status_to_unchecked();
         else if(status=="changed") h->change_status_to_changed();
+        else if(status=="unpassed") h->change_status_to_unpassed();
         s->add_hotel(h);
         qDebug()<<"read hotel";
         qDebug()<<h->get_hotel_info()->get_name();

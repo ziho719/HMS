@@ -8,6 +8,8 @@
 #include "room.h"
 #include <QMessageBox>
 
+//新增订单的对话框
+
 namespace Ui {
 class Dlg_newOrder;
 }
@@ -24,7 +26,7 @@ public slots:
     void changeUi();
 
 private slots:
-    void on_pBtn_cancel_clicked();
+    void on_pBtn_cancel_clicked();  //3个按钮的槽
 
     void on_pBtn_pay_later_clicked();
 

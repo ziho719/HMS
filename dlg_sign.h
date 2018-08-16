@@ -7,6 +7,8 @@
 #include<QMessageBox>
 #include "system.h"
 
+//登录对话框
+
 namespace Ui {
 class dlg_sign;
 }

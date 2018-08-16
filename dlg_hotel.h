@@ -6,6 +6,8 @@
 #include "system.h"
 #include <QListWidgetItem>
 
+//管理酒店的界面
+
 namespace Ui {
 class Dlg_hotel;
 }
@@ -19,8 +21,7 @@ public:
     ~Dlg_hotel();
 
 public slots:
-    void show_list();
-
+    void show_list(); //显示酒店列表
 private slots:
     void on_pBtn_newHotel_clicked();
 

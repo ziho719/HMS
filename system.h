@@ -1,6 +1,7 @@
 ﻿#ifndef SYSTEM_H
 #define SYSTEM_H
 
+//程序的核心，数据存储、处理中心
 
 #include <algorithm>
 #include <vector>
@@ -28,8 +29,8 @@ class System
 {
 public:
     //静态方法初始化
-    static void initialize();
-    static System *getSystem();
+    static void initialize();   //初始化整个系统，在main.cpp中使用
+    static System *getSystem();     //获得唯一实例，进而获取其他数据
     ~System();
 
     //添加用户
@@ -73,10 +74,9 @@ public:
     //更改用户
     void set_user(User* u);
 
-    //用于创建listwidget的select函数
+    //用于创建酒店信息列表的select函数
     vector<shared_ptr<HotelInfo>> get_hotelinfo_checked(QString loca="",QString keyWord="",QString Mode="");
     vector<shared_ptr<HotelInfo>> get_hotelinfo_unchecked();
-
 
 private:
     System();

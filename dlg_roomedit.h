@@ -9,6 +9,8 @@ namespace Ui {
 class Dlg_roomEdit;
 }
 
+//管理酒店的对话框
+
 class Dlg_roomEdit : public QDialog
 {
     Q_OBJECT

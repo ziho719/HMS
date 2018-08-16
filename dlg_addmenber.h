@@ -5,6 +5,8 @@
 #include "system.h"
 #include <QMessageBox>
 
+//为酒店新增管理员的界面
+
 namespace Ui {
 class Dlg_addmenber;
 }

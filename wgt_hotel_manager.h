@@ -9,6 +9,8 @@
 #include "dlg_addmenber.h"
 #include <QDebug>
 
+//UI的一个组件
+
 namespace Ui {
 class Wgt_hotel_manager;
 }
@@ -23,8 +25,9 @@ public:
 
 public slots:
     void changeUi();
-    void have_changed(); //让它变成待审核
-    void have_checked();
+    void to_changed(); //让它变成待审核
+    void to_checked();
+    void to_unpassed();
     void open_dlg_hotelinfo();
     void open_dlg_room();
     void open_dlg_managerlist();
@@ -36,6 +39,8 @@ private slots:
     void on_edit_info_or_look_info_clicked();
     void on_edit_room_or_look_room_clicked();
     void on_edit_manager_or_check_clicked();
+
+    void on_delete_or_unpassed_clicked();
 
 private:
     Ui::Wgt_hotel_manager *ui;

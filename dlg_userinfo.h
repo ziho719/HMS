@@ -4,6 +4,9 @@
 #include <QDialog>
 #include "system.h"
 #include <QMessageBox>
+#include <QRegExp>
+
+//修改个人信息的对话框
 
 namespace Ui {
 class Dlg_userInfo;

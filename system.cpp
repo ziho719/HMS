@@ -6,14 +6,14 @@ System* System::system=new System(); //初始化私有静态变量
 void System::initialize()
 {
     QSqlDatabase db;
-    Database::connect(db);
-    if(0){
+    //Database::connect(db);
+    if(Database::connect(db)){                   //如果连接上了数据库
        qDebug()<<"connect successfully!!!!";
        System::getSystem()->set_user(NULL);
        Database::read_all();
     }
     else{
-        //否则
+        //否则，默认数据来初始化
         System::getSystem()->set_user(NULL);
         System::getSystem()->add_customer("ziho","ziho","18907851172");
         System::getSystem()->add_customer("frisk","frisk","12321412");
@@ -60,6 +60,7 @@ void System::initialize()
         Location l4(QString::fromLocal8Bit("北京"),QString::fromLocal8Bit("北京"),QString::fromLocal8Bit("朝阳区"));
         Location l5(QString::fromLocal8Bit("广西"),QString::fromLocal8Bit("桂林"),QString::fromLocal8Bit("阳朔"));
         Location l6(QString::fromLocal8Bit("广西"),QString::fromLocal8Bit("北海"),QString::fromLocal8Bit("海城区"));
+        Location l7(QString::fromLocal8Bit("北京"),QString::fromLocal8Bit("北京"),QString::fromLocal8Bit("海淀区"));
 
         Hotel* h1 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("北京酒店式公寓"),l1,"11111"   ,QString::fromLocal8Bit(":/pics/pic/北京机场酒店式公寓.jpg")) ,vector<QString>{"sans"});
         Hotel* h2 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("锦江之星")     ,l2,"22222"   ,QString::fromLocal8Bit(":/pics/pic/2-锦江之星.jpg"))       ,vector<QString>{"sans","papyrus"});
@@ -67,14 +68,14 @@ void System::initialize()
         Hotel* h4 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("桔子酒店")     ,l4,"444444"  ,QString::fromLocal8Bit(":/pics/pic/桔子酒店.jpg"))        ,vector<QString>{"papyrus"});
         Hotel* h5 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("阳朔假日大酒店"),l5,"5555555"  ,QString::fromLocal8Bit(":/pics/pic/阳朔.jpg"))          ,vector<QString>{"toriel"});
         Hotel* h6 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("涠洲岛海景酒店"),l6,"66666666",QString::fromLocal8Bit(":/pics/pic/涠洲岛.jpg"))         ,vector<QString>{"toriel"});
+        Hotel* h7 =new Hotel(HotelInfo::newHotelInfo(QString::fromLocal8Bit("紫荆2#425B"),l7,"6666666666",QString::fromLocal8Bit(":/pics/pic/捕获.PNG"))         ,vector<QString>{"sans"});
         h1->change_status_to_checked();
         h2->change_status_to_checked();
         h3->change_status_to_checked();
         //h4->change_status_to_checked();
         h5->change_status_to_checked();
         h6->change_status_to_checked();
-
-        //here...........
+        h7->change_status_to_checked();
 
         h1->get_hotel_info()->add_room(QString::fromLocal8Bit("温馨标准间"),QString::fromLocal8Bit(":/pics/pic/1-温.jpg"),QString::fromLocal8Bit("单床"),501,0);
         h1->get_hotel_info()->add_room(QString::fromLocal8Bit("豪华商务套房"),QString::fromLocal8Bit(":/pics/pic/1-豪华.jpg"),QString::fromLocal8Bit("大床"),578,3);
@@ -89,6 +90,11 @@ void System::initialize()
         h5->get_hotel_info()->add_room(QString::fromLocal8Bit("阳台商务房"),QString::fromLocal8Bit(":/pics/pic/阳朔-阳台.jpg"),QString::fromLocal8Bit("大床"),478,8);
         h6->get_hotel_info()->add_room(QString::fromLocal8Bit("海景标准间"),QString::fromLocal8Bit(":/pics/pic/涠洲岛-标.jpg"),QString::fromLocal8Bit("大床"),686,10);
         h6->get_hotel_info()->add_room(QString::fromLocal8Bit("海景亲子间"),QString::fromLocal8Bit(":/pics/pic/涠洲岛-亲.jpg"),QString::fromLocal8Bit("多床"),858,2);
+
+        h7->get_hotel_info()->add_room(QString::fromLocal8Bit("至尊床位"),QString::fromLocal8Bit(":/pics/pic/ziho.PNG"),QString::fromLocal8Bit("我的"),9999,0);
+        h7->get_hotel_info()->add_room(QString::fromLocal8Bit("一张床"),QString::fromLocal8Bit(""),QString::fromLocal8Bit(""),9999,0,8);
+        h7->get_hotel_info()->add_room(QString::fromLocal8Bit("一张床"),QString::fromLocal8Bit(""),QString::fromLocal8Bit(""),9999,0,8);
+        h7->get_hotel_info()->add_room(QString::fromLocal8Bit("一张床"),QString::fromLocal8Bit(""),QString::fromLocal8Bit(""),9999,0,8);
 
         h1->get_hotel_info()->add_comment("ziho",QString::fromLocal8Bit("环境非常好"),5);
         h1->get_hotel_info()->add_comment("ziho",QString::fromLocal8Bit("位置难找"),3);
@@ -114,12 +120,18 @@ void System::initialize()
         h6->get_hotel_info()->add_comment("ziho",QString::fromLocal8Bit("出门小路走3-5分钟就到海边"),5);
         h6->get_hotel_info()->add_comment("ziho",QString::fromLocal8Bit("大海景色非常好"),4.7);
 
+        h7->get_hotel_info()->add_comment("ziho",QString::fromLocal8Bit("住了一年了，感觉不错"),5);
+        h7->get_hotel_info()->add_comment("ziho",QString::fromLocal8Bit("就是桃李的饭菜有点一般"),5);
+        h7->get_hotel_info()->add_comment("ziho",QString::fromLocal8Bit("每次吃饭都要走很远"),5);
+
+        System::getSystem()->add_hotel(h7);
         System::getSystem()->add_hotel(h1);
         System::getSystem()->add_hotel(h2);
         System::getSystem()->add_hotel(h3);
         System::getSystem()->add_hotel(h4);
         System::getSystem()->add_hotel(h5);
         System::getSystem()->add_hotel(h6);
+
         //结束否则
     }
 
@@ -389,7 +401,7 @@ vector<shared_ptr<HotelInfo> > System::get_hotelinfo_checked(QString loca, QStri
         if(Mode=="mark_down"){
             sort(res.begin(),res.end(),[](shared_ptr<HotelInfo> a,shared_ptr<HotelInfo> b)
             {
-                return a->get_mark()>b->get_mark(); //lambda表达式
+                return a->get_mark()>b->get_mark(); //再用lambda表达式的sort排序
             });
         }
         else if(Mode=="price_down"){

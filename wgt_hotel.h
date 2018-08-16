@@ -8,6 +8,8 @@
 #include <memory>
 #include "wgt_comments.h"
 
+//UI的一个组件
+
 namespace Ui {
 class Wgt_hotel;
 }

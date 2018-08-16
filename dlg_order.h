@@ -4,6 +4,8 @@
 #include <QDialog>
 #include "wgt_order.h"
 
+//显示订单列表的对话框
+
 namespace Ui {
 class Dlg_order;
 }

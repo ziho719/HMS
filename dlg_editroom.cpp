@@ -59,7 +59,7 @@ void Dlg_editRoom::on_yes_clicked()
                                  ,QString::fromLocal8Bit("请不要留空"),QMessageBox::Ok);
         return;
     }
-    QRegExp reg("\\d*");
+    QRegExp reg("\\d*");   //正则判断是否数字
     if(!reg.exactMatch(ui->lineEdit_price->text()) ||
        !reg.exactMatch(ui->lineEdit_sum->text()) ||
             !(reg.exactMatch(ui->lineEdit_discount->text())|| ui->lineEdit_discount->text()=="")){

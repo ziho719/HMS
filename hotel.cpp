@@ -22,11 +22,17 @@ void Hotel::change_status_to_changed()
     status=changed;
 }
 
+void Hotel::change_status_to_unpassed()
+{
+    status=unpassed;
+}
+
 QString Hotel::get_status()
 {
     if(status==checked) return "checked";
     else if(status==unchecked) return "unchecked";
     else if(status==changed) return "changed";
+    else if(status==unpassed) return "unpassed";
     else{
         qDebug()<<"status have some mistakes";
         return "NULL";

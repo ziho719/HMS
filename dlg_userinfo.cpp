@@ -48,8 +48,14 @@ void Dlg_userInfo::on_yes_clicked()
         qDebug()<<"wrong";
         return;
     }
+    QRegExp r("\\d*");
+    if(ui->lineEdit_phone->text()!="" && !r.exactMatch(ui->lineEdit_phone->text())){
+        QMessageBox::information(NULL,QString::fromLocal8Bit("HMS")
+                                 ,QString::fromLocal8Bit("不是一个电话号"),QMessageBox::Ok);
+        return;
+    }
     user->edit_phone(ui->lineEdit_phone->text());
-    user->edit_name(ui->lineEdit_user->text());
+
     QMessageBox::information(NULL,QString::fromLocal8Bit("HMS")
                              ,QString::fromLocal8Bit("修改成功"),QMessageBox::Ok);
     this->close();

@@ -41,7 +41,7 @@ void Dlg_newOrder::on_pBtn_pay_later_clicked()
     System::getSystem()->add_order(o);
 
     System::getSystem()->find_hotel(o->get_hotel())->get_hotel_info()->reduce_roomSum(o->get_roomType());
-    //打开查询订单界面
+
     QMessageBox::information(NULL,QString::fromLocal8Bit("success")
                              ,QString::fromLocal8Bit("请在“查看订单”界面尽快付款！"),QMessageBox::Ok);
     this->close();
@@ -61,7 +61,7 @@ void Dlg_newOrder::on_pBtn_pay_now_clicked()
     System::getSystem()->find_hotel(o->get_hotel())->get_hotel_info()->reduce_roomSum(o->get_roomType());
     System::getSystem()->add_order(o);
 
-    //打开查询订单界面
+
     QMessageBox::information(NULL,QString::fromLocal8Bit("success")
                              ,QString::fromLocal8Bit("成功"),QMessageBox::Ok);
     this->close();

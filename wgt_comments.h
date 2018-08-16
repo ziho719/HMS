@@ -10,6 +10,8 @@
 #include <QStandardItemModel>
 #include <QDebug>
 
+//评论对话框
+
 namespace Ui {
 class Wgt_comments;
 }

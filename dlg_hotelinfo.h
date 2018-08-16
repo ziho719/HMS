@@ -6,6 +6,8 @@
 #include<QMessageBox>
 #include "location.h"
 
+//修改或显示酒店信息
+
 namespace Ui {
 class Dlg_hotelInfo;
 }

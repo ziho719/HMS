@@ -12,7 +12,7 @@ public:
     User(const User& user);
     virtual ~User(){}
 
-    virtual QString userType(){return "user";}
+    virtual QString userType(){return "user";}  //区分不同类型用户的关键
     virtual QString get_phone(){return "";}
     virtual void edit_phone(const QString&){}
 

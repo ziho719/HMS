@@ -20,7 +20,7 @@ public:
     void set_city(const QString c)        {city=c;}
     void set_district(const QString d)  {district=d;}
 
-    bool match(QString loca)
+    bool match(QString loca)   //判断关键词与该地址有无关系，用于搜索
     {
         QRegExp r("\\w*"+loca+"\\w*");
         if(r.exactMatch(province+city+district))

@@ -6,6 +6,9 @@ Dlg_hotelInfo::Dlg_hotelInfo(Hotel *h,QWidget *parent) :
     ui(new Ui::Dlg_hotelInfo)
 {
     ui->setupUi(this);
+
+    //根据登录用户不同改变UI,之后一般放在ChangeUi函数里
+
     ui->lineEdit_city->setText(hotel->get_hotel_info()->get_location().get_city());
     ui->lineEdit_province->setText(hotel->get_hotel_info()->get_location().get_province());
     ui->lineEdit_district->setText(hotel->get_hotel_info()->get_location().get_district());

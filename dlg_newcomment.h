@@ -6,6 +6,8 @@
 #include <QMessageBox>
 #include <QRegExp>
 
+//新增评论的对话框
+
 namespace Ui {
 class Dlg_newComment;
 }

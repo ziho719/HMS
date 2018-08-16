@@ -3,6 +3,9 @@
 
 #include"user.h"
 
+//管理员账户，普通继承
+
+
 class Administrater : public User
 {
 public:

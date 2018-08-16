@@ -76,7 +76,8 @@ SOURCES += \
     wgt_roomedit.cpp \
     dlg_editroom.cpp \
     dlg_addmenber.cpp \
-    database.cpp
+    database.cpp \
+    wgt_about.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -138,7 +139,8 @@ HEADERS += \
     wgt_roomedit.h \
     dlg_editroom.h \
     dlg_addmenber.h \
-    database.h
+    database.h \
+    wgt_about.h
 
 FORMS += \
     mainwindow.ui \
@@ -159,7 +161,8 @@ FORMS += \
     dlg_roomedit.ui \
     wgt_roomedit.ui \
     dlg_editroom.ui \
-    dlg_addmenber.ui
+    dlg_addmenber.ui \
+    wgt_about.ui
 
 RESOURCES += \
     hotel_pic.qrc

@@ -7,6 +7,8 @@
 #include <QRegExp>
 #include <QMessageBox>
 
+//编辑房间的界面
+
 namespace Ui {
 class Dlg_editRoom;
 }
@@ -25,7 +27,7 @@ private slots:
     void on_no_clicked();
 
 signals:
-    void success();
+    void success(); //代表酒店信息有改变
 
 private:
     Ui::Dlg_editRoom *ui;

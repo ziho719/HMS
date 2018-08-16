@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QDebug>
 
+//用作主窗口中Btn_table的组件
+
 namespace Ui {
 class FunctionBtn;
 }

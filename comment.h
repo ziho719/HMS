@@ -14,6 +14,7 @@ public:
     const QString& get_content()const{ return content; }
           double    get_mark()const{return mark;}
 
+          //不应该可以改变评论，没有setter函数
 
 private:
     const QString userName;

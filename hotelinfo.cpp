@@ -10,7 +10,6 @@ shared_ptr<HotelInfo> HotelInfo::newHotelInfo(QString name, Location loca, QStri
 shared_ptr<HotelInfo> HotelInfo::get_shared_ptr()
 {
     auto s_ptr=thisWeakPtr.lock();
-    //do sth
     return s_ptr;
 
 }

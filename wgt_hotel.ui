@@ -57,13 +57,6 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="l_location_detail">
-          <property name="text">
-           <string>地址</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QLabel" name="l_phone">
           <property name="text">
            <string>电话</string>

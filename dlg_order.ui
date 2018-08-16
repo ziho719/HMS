@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>管理订单</string>
   </property>
   <widget class="QLabel" name="label_status">
    <property name="geometry">

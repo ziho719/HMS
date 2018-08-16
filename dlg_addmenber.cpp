@@ -21,7 +21,7 @@ void Dlg_addmenber::on_pushButton_2_clicked()
     this->close();
 }
 
-void Dlg_addmenber::on_pushButton_clicked()
+void Dlg_addmenber::on_pushButton_clicked()  //点击确认
 {
     if(ui->lineEdit_pwd->text()=="" ||ui->lineEdit_user->text()==""){
         QMessageBox::information(NULL,QString::fromLocal8Bit("fail")
